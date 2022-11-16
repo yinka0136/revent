@@ -1,0 +1,334 @@
+<div class="wrapper">
+  <h3 class="wrapper-heading">Create Account</h3>
+  <p class="wrapper-paragraph">
+    Let’s get you started on your Klinicly journey.
+  </p>
+  <form [formGroup]="registrationForm">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-6">
+        <div class="form_group">
+          <label for="name" class="form-label">First Name </label>
+          <input
+            type="text"
+            id="firstname"
+            class="form-control"
+            formControlName="firstName"
+            placeholder="Enter Your First Name"
+            (keyup)="checkForKeyEnter($event)"
+            autocomplete="name"
+            [ngClass]="{
+              'is-invalid':
+                registrationForm.get('firstName')!.errors?.required &&
+                (registrationForm.get('firstName')!.dirty ||
+                  registrationForm.get('firstName')!.touched)
+            }"
+          />
+          <span
+            class="invalid-feedback"
+            *ngIf="
+              registrationForm.get('firstName')?.errors?.required &&
+              (registrationForm.get('firstName')?.dirty ||
+                registrationForm.get('firstName')?.touched)
+            "
+            >Required</span
+          >
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-6">
+        <div class="form_group">
+          <label for="firstname" class="form-label">Last Name </label>
+          <input
+            type="text"
+            id="text"
+            class="form-control"
+            placeholder="Enter Your Last Name"
+            formControlName="lastName"
+            (keyup)="checkForKeyEnter($event)"
+            autocomplete="name"
+            [ngClass]="{
+              'is-invalid':
+                registrationForm.get('lastName')!.errors?.required &&
+                (registrationForm.get('lastName')!.dirty ||
+                  registrationForm.get('lastName')!.touched)
+            }"
+          />
+          <span
+            class="invalid-feedback"
+            *ngIf="
+              registrationForm.get('lastName')?.errors?.required &&
+              (registrationForm.get('lastName')?.dirty ||
+                registrationForm.get('lastName')?.touched)
+            "
+            >Required</span
+          >
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-6">
+        <div class="form_group">
+          <label for="name" class="form-label">Other Name </label>
+          <input
+            type="text"
+            id="text"
+            class="form-control"
+            placeholder="Enter Your Others Name"
+            formControlName="otherName"
+            (keyup)="checkForKeyEnter($event)"
+            autocomplete="name"
+            [ngClass]="{
+              'is-invalid':
+                registrationForm.get('otherName')!.errors?.required &&
+                (registrationForm.get('otherName')!.dirty ||
+                  registrationForm.get('otherName')!.touched)
+            }"
+          />
+          <span
+            class="invalid-feedback"
+            *ngIf="
+              registrationForm.get('otherName')?.errors?.required &&
+              (registrationForm.get('otherName')?.dirty ||
+                registrationForm.get('otherName')?.touched)
+            "
+            >Required</span
+          >
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-6">
+        <div class="form_group">
+          <label for="tel" class="form-label">Phone Number</label>
+          <input
+            type="tel"
+            id="tel"
+            class="form-control"
+            placeholder="Enter Mobile Number"
+            formControlName="phoneNumber"
+            (keyup)="checkForKeyEnter($event)"
+            autocomplete="tel"
+            [ngClass]="{
+              'is-invalid':
+                (registrationForm.get('phoneNumber')!.errors?.required &&
+                  (registrationForm.get('phoneNumber')!.dirty ||
+                    registrationForm.get('phoneNumber')!.touched)) ||
+                (registrationForm.get('phoneNumber')!.hasError('pattern') &&
+                  !registrationForm.get('phoneNumber')!.hasError('required'))
+            }"
+          />
+          <span
+            class="invalid-feedback"
+            *ngIf="
+              registrationForm.get('phoneNumber')?.errors?.required &&
+              (registrationForm.get('phoneNumber')?.dirty ||
+                registrationForm.get('phoneNumber')?.touched)
+            "
+            >Required</span
+          >
+          <span
+            class="invalid-feedback"
+            *ngIf="
+              registrationForm.get('phoneNumber')?.hasError('pattern') &&
+              !registrationForm.get('phoneNumber')?.hasError('required')
+            "
+            >Please provide a valid phone number</span
+          >
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form_group">
+          <label for="email" class="form-label">Email </label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter Your Email Address"
+            formControlName="email"
+            (keyup)="checkForKeyEnter($event)"
+            autocomplete="email"
+            [ngClass]="{
+              'is-invalid':
+                (registrationForm.get('email')!.errors?.required &&
+                  (registrationForm.get('email')!.dirty ||
+                    registrationForm.get('email')!.touched)) ||
+                (registrationForm.get('email')!.hasError('email') &&
+                  !registrationForm.get('email')!.hasError('required'))
+            }"
+          />
+          <span
+            class="invalid-feedback"
+            *ngIf="
+              registrationForm.get('email')?.errors?.required &&
+              (registrationForm.get('email')?.dirty ||
+                registrationForm.get('email')?.touched)
+            "
+            >Required</span
+          >
+          <span
+            class="invalid-feedback"
+            *ngIf="
+              registrationForm.get('email')?.hasError('email') &&
+              !registrationForm.get('email')?.hasError('required')
+            "
+            >Please provide a valid email address</span
+          >
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-6">
+        <div class="form_group position-relative">
+          <label for="password" class="form-label">password </label>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            class="form-control"
+            placeholder="Enter Password"
+            formControlName="password"
+            (keyup)="checkForKeyEnter($event)"
+            autocomplete="current-password"
+            [ngClass]="{
+              'is-invalid':
+                registrationForm.get('password')!.errors &&
+                (registrationForm.get('password')!.dirty ||
+                  registrationForm.get('password')!.touched)
+            }"
+          />
+          <img
+            (click)="showPassword = !showPassword"
+            src="assets/icons/eye-icon-{{
+              showPassword ? 'open' : 'close'
+            }}.svg"
+            alt="eye close icon"
+            class="svg_eye"
+          />
+
+          <span
+            class="invalid-feedback"
+            *ngIf="registrationForm.get('password')!.hasError('required')"
+          >
+            Password is required
+          </span>
+          <small
+            class="invalid-feedback mt-2"
+            *ngIf="
+              registrationForm.get('password')!.dirty &&
+              registrationForm.get('password')!.invalid
+            "
+          >
+            *Your password must have at least
+            <span
+              *ngIf="
+                registrationForm.get('password')!.hasError('minlength') ||
+                registrationForm.get('password')!.hasError('required')
+              "
+              >8 characters,
+            </span>
+            <span
+              *ngIf="
+                registrationForm.get('password')!.hasError('hasNumber') ||
+                registrationForm.get('password')!.hasError('required')
+              "
+              >1 number,</span
+            >
+            <span
+              *ngIf="
+                registrationForm.get('password')!.hasError('hasCapitalCase') ||
+                registrationForm.get('password')!.hasError('required')
+              "
+            >
+              1 capital letter,
+            </span>
+            <span
+              *ngIf="
+                registrationForm.get('password')!.hasError('hasSmallCase') ||
+                registrationForm.get('password')!.hasError('required')
+              "
+            >
+              1 small letter,
+            </span>
+            <span
+              *ngIf="
+                registrationForm
+                  .get('password')!
+                  .hasError('hasSpecialCharacters') ||
+                registrationForm.get('password')!.hasError('required')
+              "
+            >
+              and 1 special character.
+            </span>
+          </small>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-6">
+        <div class="form_group position-relative">
+          <label for="confirmPassword" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            id="confirmPassword"
+            class="form-control"
+            placeholder="Create a secure password"
+            formControlName="confirmPassword"
+            (keyup)="checkForKeyEnter($event)"
+            autocomplete="new-password"
+            [ngClass]="{
+              'is-invalid':
+                registrationForm.get('confirmPassword')!.dirty &&
+                registrationForm.get('confirmPassword')!.invalid
+            }"
+          />
+          <img
+            (click)="showConfirmPassword = !showConfirmPassword"
+            src="assets/icons/eye-icon-{{
+              showConfirmPassword ? 'open' : 'close'
+            }}.svg"
+            alt="eye close icon"
+            class="svg_eye"
+          />
+          <small class="invalid-feedback mt-2">
+            <span
+              *ngIf="
+                (registrationForm
+                  .get('confirmPassword')!
+                  .hasError('required') ||
+                  registrationForm
+                    .get('confirmPassword')!
+                    .hasError('NoPasswordMatch')) &&
+                (registrationForm.get('confirmPassword')!.dirty ||
+                  registrationForm.get('confirmPassword')!.touched)
+              "
+            >
+              Password Doesn't match
+            </span>
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form_group">
+      <button
+        class="btn_primary btn_md btn_full"
+        [title]="
+          registrationForm.invalid
+            ? 'pls input correct details'
+            : 'Create Account '
+        "
+        (click)="register()"
+      >
+        <span *ngIf="!isLoading">Create Account </span>
+        <span *ngIf="isLoading">
+          <app-global-loader
+            [diameter]="20"
+            [inline]="true"
+          ></app-global-loader>
+        </span>
+      </button>
+    </div>
+    <!-- <app-socials></app-socials> -->
+    <p
+      class="wrapper-already"
+      [routerLink]="['/login']"
+      routerLinkActive="active"
+    >
+      Already have an accont? <span>Sign In</span>
+    </p>
+  </form>
+</div>

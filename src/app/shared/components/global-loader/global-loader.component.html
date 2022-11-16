@@ -1,0 +1,10 @@
+<div class="spinner" [class.inline]="inline" *ngIf="isRegular()">
+  <h4 *ngIf="text">{{ text }}</h4>
+  <mat-spinner [diameter]="diameter"></mat-spinner>
+</div>
+
+<div class="backDrop" *ngIf="!isRegular()">
+  <div class="spinner" [class.inline]="inline">
+    <mat-spinner [diameter]="diameter"></mat-spinner>
+  </div>
+</div>

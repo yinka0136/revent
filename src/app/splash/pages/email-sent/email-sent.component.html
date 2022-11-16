@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <img src="assets/icons/email.svg" alt="Email" />
+  <h3 class="wrapper-heading">Email Verification</h3>
+  <p class="wrapper-paragraph">
+    A verification link has been sent to your email. Kindly click the link to
+    complete your registration.
+  </p>
+  <div class="form_group">
+    <button class="btn_text btn_md btn_full" disabled>
+      Resend in {{ timeLeft }}
+    </button>
+  </div>
+  <div class="form_group">
+    <button
+      (click)="forgot()"
+      [disabled]="timeLeft > 0 || isLoading"
+      class="btn_primary btn_md btn_full"
+    >
+      <span *ngIf="!isLoading">Resend Verification Link</span>
+      <span *ngIf="isLoading">
+        <app-global-loader [diameter]="20" [inline]="true"></app-global-loader>
+      </span>
+    </button>
+  </div>
+  <p class="wrapper-already">
+    Back to Login
+    <span [routerLink]="['/login']" routerLinkActive="active">Sign In</span>
+  </p>
+</div>

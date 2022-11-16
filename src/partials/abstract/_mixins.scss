@@ -1,0 +1,157 @@
+// Responsive breakpoints
+$S: 576px;
+$M: 768px; // Phablets
+$L: 992px; // 10" Tablets and desktops
+$XL: 1200px; // desktops..
+
+@mixin text($size, $weight, $color, $line-height) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  line-height: $line-height;
+}
+@mixin text_truncate($line_number) {
+  @if $line_number >= 1 {
+    display: -webkit-box;
+    -webkit-line-clamp: $line_number;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+// MEDIA QUERY MANAGER
+/*
+  0 - 600px: Phone
+  600 - 900px: Tablet portrait
+  900 - 1200px: Tablet landscape
+  [1200 - 1800] is where noraml styles apply
+  1800ox +: Tablet landscape
+
+  $breakpoint argument choices:
+  - phone
+  - tab-port
+  - tab-land
+  - big-desktop
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      //600px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-sm {
+    @media (max-width: 46.25em) {
+      //740px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 62.19em) {
+      //995px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-mid {
+    @media (max-width: 69em) {
+      //1104px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      //1200px
+      @content;
+    }
+  }
+  @if $breakpoint == dash-change {
+    @media (max-width: 80em) {
+      //1280px
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      //1800px
+      @content;
+    }
+  }
+  @if $breakpoint == laptopsAndAbove {
+    @media (min-width: 80em) {
+      //1280px
+      @content;
+    }
+  }
+}
+
+@mixin screenSize($canvas) {
+  @if $canvas==XS {
+    /* Smaller Mobile devices */
+    @media only screen and(max-width: calc(#{$S - 1px}) ) {
+      @content;
+    }
+  } @else if $canvas==S {
+    /* Mobile devices */
+    @media only screen and (max-width: calc(#{$M - 1px}) ) {
+      @content;
+    }
+  } @else if $canvas==M {
+    /* Tablets and phablets */
+    @media only screen and (min-width: $M) and (max-width: calc(#{$L - 1px}) ) {
+      @content;
+    }
+  } @else if $canvas==L {
+    /* Landscape tablets and desktop or laptops */
+    @media only screen and (min-width: $L) and (max-width: calc(#{$XL - 1px}) ) {
+      @content;
+    }
+  } @else if $canvas==XL {
+    /* Landscape tablets and desktop or laptops */
+    @media only screen and (min-width: $XL) {
+      @content;
+    }
+  }
+}
+@mixin minSize($canvas) {
+  @if $canvas==S {
+    /* Mobile devices */
+    @media only screen and (min-width: $S) {
+      @content;
+    }
+  } @else if $canvas==M {
+    /* Tablets and phablets */
+    @media only screen and (min-width: $M) {
+      @content;
+    }
+  } @else if $canvas==L {
+    /* Landscape tablets and desktop or laptops */
+    @media only screen and (min-width: $L) {
+      @content;
+    }
+  } @else if $canvas==XL {
+    /* Landscape tablets and desktop or laptops */
+    @media only screen and (min-width: $XL) {
+      @content;
+    }
+  }
+}
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}

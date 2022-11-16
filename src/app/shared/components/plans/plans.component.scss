@@ -1,0 +1,181 @@
+@import "partials/abstract/mixins";
+@import "partials/abstract/variables";
+
+.switch {
+  transition: 0.3s all ease-out;
+  margin-top: 10rem;
+  box-shadow: inset 0px 0px 4px rgba(15, 23, 51, 0.1),
+    inset 0px 0px 4px rgba(15, 23, 51, 0.1);
+  border-radius: 5.6rem;
+  padding: 0.4rem;
+  //   max-width: 23.6rem;
+  margin-bottom: 4rem;
+  display: flex;
+
+  &_option {
+    transition: 0.3s all ease-in;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 4rem;
+    padding: 1rem 2.4rem;
+    width: 100%;
+    &.active {
+      background: $accent;
+      p {
+        color: $light-100;
+      }
+    }
+    p {
+      text-align: center;
+      font-family: $nunito_font_extra_bold;
+      font-weight: 800;
+      font-size: 1.4rem;
+      line-height: 2rem;
+      color: $body;
+    }
+  }
+}
+
+.card {
+  cursor: crosshair;
+  padding: 0.8rem 0.8rem 4rem;
+  background: $light-100;
+  border: 0.1rem solid rgba(15, 23, 51, 0.1);
+  box-shadow: 0 1.2rem 2.4rem rgba(37, 99, 235, 0.1);
+  border-radius: 1.6rem;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+  @include respond(phone) {
+    padding: 0.8rem;
+  }
+
+  &-head {
+    width: 100%;
+    margin-bottom: 0.8rem;
+    border-radius: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.6rem;
+    transition: all 0.6s ease-in-out;
+    @include respond(phone) {
+      padding: 1rem;
+    }
+
+    &__title {
+      font-family: $nunito_font_extra_bold;
+      margin-bottom: 1.6rem;
+      text-align: center;
+      @include respond(phone) {
+        margin-bottom: 0rem;
+      }
+    }
+    &__border {
+      margin: auto;
+      margin-bottom: 3rem;
+      border: 0.2rem solid $accent;
+      width: 3.2rem;
+      border-radius: 1rem;
+      @include respond(phone) {
+        margin-bottom: 0rem;
+      }
+    }
+    &__price {
+      margin: auto;
+      display: flex;
+      align-items: baseline;
+      h2 {
+        font-family: $nunito_font_extra_bold;
+        margin-right: 0.4rem;
+        font-size: 3rem !important;
+      }
+      p {
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 150%;
+        color: $body;
+      }
+    }
+  }
+
+  &-list {
+    margin-bottom: 1.6rem;
+    @include respond(phone) {
+      margin-bottom: 1.6rem;
+      padding-top: 1rem;
+    }
+
+    padding-top: 3.2rem;
+    border-top: 0.1rem solid rgba($dark, 0.1);
+    &__item {
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      img {
+        margin-right: 1.2rem;
+      }
+      p {
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+        color: $body;
+      }
+    }
+  }
+  .btn_outlined {
+    margin-top: auto;
+  }
+  &:hover,
+  &.active {
+    .card-head {
+      background: $accent;
+      .card-head__title {
+        color: $light-100;
+      }
+      .card-head__border {
+        border: 0.4rem solid $light-100;
+      }
+      .card-head__price {
+        h2 {
+          color: $light-100;
+        }
+        p {
+          color: rgba($light-100, 0.8);
+        }
+      }
+    }
+
+    .btn_outlined {
+      background: $accent;
+      box-shadow: 0 0.4rem 0.8rem -0.1rem rgba(35, 65, 179, 0.25);
+      border-radius: 0.8rem;
+      font-weight: 700;
+      line-height: 150%;
+      color: $light-100;
+      transition: 0.3s all ease-in-out;
+      border: none;
+      &:hover,
+      &:focus {
+        border-radius: 4rem;
+        background: linear-gradient(180deg, $gradient1 0%, $gradient2 100%);
+      }
+      &:disabled {
+        background: rgba($header, 0.15);
+      }
+    }
+  }
+}
+
+@include respond(phone) {
+  .row {
+    & :not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+  .row > {
+    margin-bottom: 2rem;
+  }
+}

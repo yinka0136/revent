@@ -1,0 +1,146 @@
+<nav class="">
+  <div (click)="goToLanding()" class="pointer me-2">
+    <img src="assets/icons/logo.svg" alt="logo" />
+  </div>
+
+  <div class="right">
+    <app-searchbar
+      (searchQuery)="searchQueryAction($event)"
+      (searchAction)="search()"
+      (searchModeEvent)="getSearchMode($event)"
+    ></app-searchbar>
+    <div class="right_notification d-none d-lg-block">
+      <span class="dot"></span>
+      <img
+        custom-drawer-trigger="notifications"
+        src="assets/icons/notification.svg"
+        alt="Notifications"
+      />
+    </div>
+    <span class="line d-none d-lg-block"></span>
+    <h4 routerLink="/user-profile" class="d-none d-lg-block">
+      {{ user?.userName }}
+    </h4>
+    <span
+      [matMenuTriggerFor]="menu"
+      class="d-flex align-items-center pointer "
+    >
+      <div class="right_avatar">
+        <div class="right_avatar-inner">
+          <p>{{ initial }}</p>
+        </div>
+      </div>
+      <svg
+        class="right_caret"
+        width="6"
+        height="4"
+        viewBox="0 0 6 4"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5.46584 0.408203H2.87001H0.532496C0.132496 0.408203 -0.0675039 0.891536 0.215829 1.17487L2.37418 3.33321C2.72001 3.67904 3.28251 3.67904 3.62834 3.33321L4.44918 2.51237L5.78668 1.17487C6.06584 0.891536 5.86584 0.408203 5.46584 0.408203Z"
+          fill="#596180"
+        />
+      </svg>
+    </span>
+
+    <mat-menu #menu="matMenu">
+      <button
+        *rbacAllow="['User']"
+        class="btn_primary btn_md btn_full mb-2"
+        routerLink="s/dashboard/upgrade"
+      >
+        Upgrade Plan
+      </button>
+      <button
+        *rbacAllow="['Company']"
+        class="btn_primary btn_md btn_full mb-2"
+        routerLink="c/dashboard/upgrade"
+      >
+        Upgrade Plan
+      </button>
+      <div class="dropdown_item" routerLink="account">
+        <svg
+          width="20"
+          height="21"
+          viewBox="0 0 20 21"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.1334 9.55866C10.05 9.55033 9.95004 9.55033 9.85838 9.55866C7.87501 9.49199 6.30001 7.86699 6.30001 5.86699C6.30001 3.82533 7.95001 2.16699 10 2.16699C12.0417 2.16699 13.7 3.82533 13.7 5.86699C13.6917 7.86699 12.1167 9.49199 10.1334 9.55866ZM5.9666 12.6337C3.94993 13.9837 3.94993 16.1837 5.9666 17.5253C8.25827 19.0587 12.0166 19.0587 14.3083 17.5253C16.325 16.1753 16.325 13.9753 14.3083 12.6337C12.025 11.1087 8.2666 11.1087 5.9666 12.6337Z"
+            stroke="#596180"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+        <h4>Account</h4>
+      </div>
+      <div class="dropdown_item" (click)="logout()">
+        <svg
+          width="20"
+          height="21"
+          viewBox="0 0 20 21"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.41672 6.8002C7.67506 3.8002 9.21671 2.5752 12.5917 2.5752H12.7C16.425 2.5752 17.9167 4.06686 17.9167 7.79186V13.2252C17.9167 16.9502 16.425 18.4419 12.7 18.4419H12.5917C9.24171 18.4419 7.70006 17.2335 7.42506 14.2835M12.5 10.5002H3.01671M4.87504 7.70845L2.08337 10.5001L4.87504 13.2918"
+            stroke="#596180"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+        <h4>Logout</h4>
+      </div>
+    </mat-menu>
+  </div>
+</nav>
+<app-search-results
+  class="search"
+  [ngClass]="{
+    close: !this.searchQuery.search || !searchMode
+  }"
+  [length]="searchResults.length!"
+  [searchResults]="searchResults"
+  [loading]="isLoading"
+></app-search-results>
+<!-- View Sidebar Drawer -->
+<app-reusable-side-drawer headerTitle="" elementId="notifications">
+  <div class="drawer-header">
+    <div class="head">
+      <div class="d-flex align-items-center">
+        <img src="../../../../assets//icons/notification.svg" alt="" />
+        <h5 class="mb-0">Notifications</h5>
+      </div>
+      <svg
+        class="close-drawer pointer"
+        #closeDrawer
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        aria-hidden="true"
+        role="img"
+        width="1em"
+        height="1em"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M24 2.4L21.6 0L12 9.6L2.4 0L0 2.4L9.6 12L0 21.6L2.4 24l9.6-9.6l9.6 9.6l2.4-2.4l-9.6-9.6z"
+          fill="#353c42"
+        />
+      </svg>
+    </div>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-content">
+      <div class="overflow-x-scroll"></div>
+    </div>
+  </div>
+</app-reusable-side-drawer>
+<!-- End of View Sidebar Drawer -->

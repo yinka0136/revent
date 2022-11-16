@@ -1,0 +1,52 @@
+@import "partials/abstract/mixins";
+@import "partials/abstract/variables";
+
+.wrapper {
+  &_or {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3.2rem;
+    &-text {
+      margin: 0 0.2rem;
+      width: 100%;
+      background: rgba(15, 23, 51, 0.05);
+      border-radius: 2.4rem;
+      padding: 0.4rem 1.2rem;
+      p {
+        font-weight: 700;
+        font-size: 1.2rem;
+        line-height: 150%;
+        text-align: center;
+        color: $body;
+      }
+    }
+  }
+
+  &_socials {
+    &-social {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 2.4rem;
+      height: 4.8rem;
+      border: 0.1rem solid rgba(7, 43, 28, 0.15);
+      border-radius: 0.8rem;
+      img {
+        margin-right: 0.8rem;
+      }
+      @include respond(phone) {
+        margin-bottom: 1rem;
+      }
+      p {
+        font-family: $nunito_font_bold;
+        font-weight: 600;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        text-align: center;
+        color: $body;
+      }
+    }
+  }
+}

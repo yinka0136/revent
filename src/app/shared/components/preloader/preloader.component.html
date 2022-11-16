@@ -1,0 +1,13 @@
+<div
+  class="preloader d-flex justify-content-center align-items-center flex-column"
+  *ngIf="showLoader$ | async"
+>
+  <div class="logo flash infinite animated">
+    <img src="assets/icons/logo.svg" alt="logo" />
+  </div>
+  <div class="progress-cont mt-3">
+    <div class="progress">
+      <div class="indeterminate"></div>
+    </div>
+  </div>
+</div>

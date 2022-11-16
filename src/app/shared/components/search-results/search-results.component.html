@@ -1,0 +1,19 @@
+<div class="nav__results">
+  <div class="" *ngIf="length == 0 && !loading; else searchContent">
+    <app-empty-search-history></app-empty-search-history>
+  </div>
+  <span *ngIf="loading"><app-global-loader></app-global-loader></span>
+  <ng-template #searchContent>
+    <ng-container *ngIf="!loading">
+      <div *ngFor="let result of searchResults" class="nav__results-result">
+        <p class="nav__results-heading">{{ result?.title }}</p>
+        <p class="nav__results-paragraph" *ngFor="let item of result?.items">
+          {{ item?.name }}
+        </p>
+      </div></ng-container
+    >
+  </ng-template>
+</div>
+<!-- [ngClass]="{
+    close: !this.searchForm.value || !searchMode
+  }" -->

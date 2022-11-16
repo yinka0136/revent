@@ -1,0 +1,46 @@
+@import "partials/abstract/mixins.scss";
+@import "partials/abstract/variables.scss";
+
+.wrapper {
+  background: $light-100;
+  box-shadow: 0px 12px 24px rgba(37, 99, 235, 0.1);
+  backdrop-filter: blur(0.8rem);
+  border-radius: 0.8rem;
+  margin-left: 2.4rem;
+  margin-right: 2.4rem;
+  margin-top: -4.8rem;
+  padding: 2.4rem;
+  &_left {
+    height: 100%;
+    border-right: 0.1rem solid rgba($dark, 0.1);
+    padding: 2rem;
+
+    ul {
+      padding-left: 0;
+      li {
+        list-style: none;
+        .side-link {
+          font-size: 1.4rem;
+          line-height: 150%;
+          font-weight: 400;
+          color: $body;
+          padding: 1rem 1.6rem;
+          margin: 1.6rem 0;
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          transition: all 0.3s ease;
+
+          &.active {
+            background: $light-200;
+            border-radius: 0.6rem;
+            color: $header;
+          }
+        }
+      }
+    }
+  }
+  &_right {
+    padding: 2rem;
+  }
+}

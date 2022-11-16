@@ -1,0 +1,41 @@
+<app-main-header
+  title="Account Settings"
+  paragraph="Manage your account and password here"
+></app-main-header>
+
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-4 col-lg-4">
+      <div class="wrapper_left">
+        <ul>
+          <li>
+            <a
+              class="side-link"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: false }"
+              routerLink="i"
+            >
+              <span>Account Info</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="side-link"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: false }"
+              routerLink="p"
+            >
+              <span>Password</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-8 col-lg-8">
+      <div class="wrapper_right">
+        <router-outlet></router-outlet>
+      </div>
+    
+    </div>
+  </div>
+</div>

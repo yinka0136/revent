@@ -1,0 +1,73 @@
+<span *ngIf="isLoading"><app-global-loader></app-global-loader></span>
+
+<ng-container>
+  <!-- <div class="switch" *ngIf="!isLoading">
+    <div
+      (click)="selectPlanType(planType.MONTHLY)"
+      class="switch_option"
+      [ngClass]="{ active: selected == planType.MONTHLY }"
+    >
+      <p>Monthly</p>
+    </div>
+    <div
+      (click)="selectPlanType(planType.YEARLY)"
+      class="switch_option"
+      [ngClass]="{ active: selected == planType.YEARLY }"
+    >
+      <p>Yearly</p>
+    </div>
+  </div> -->
+
+  <div class="container mt-5">
+    <div class="row" #section1>
+      <div class="col-12 col-md-4 col-lg-4 mb-2" *ngFor="let plan of plans">
+        <button
+          (click)="openMonthsModal(plan?.id!)"
+          class="card btn_full"
+          [disabled]="currentPlan?.planId! == plan?.id"
+        >
+          <div class="card-head">
+            <h3 class="card-head__title">
+              <span *ngIf="currentPlan?.planId! == plan?.id">Current :</span>
+              {{ plan?.name }}
+            </h3>
+            <span class="card-head__border"></span>
+            <div class="card-head__price">
+              <h2>{{ plan?.amountPerMonth | currency: "₦" }}</h2>
+              <p>/ Month</p>
+            </div>
+          </div>
+          <div class="card-list">
+            <div class="card-list__item">
+              <img
+                class="img"
+                src="assets/landing/svg/checkmark.svg"
+                alt="checkmark"
+              />
+              <p>{{ plan?.apiCallCount }} API calls.</p>
+            </div>
+            <div class="card-list__item">
+              <img
+                class="img"
+                src="assets/landing/svg/checkmark.svg"
+                alt="checkmark"
+              />
+              <p>{{ plan?.discountPerYear }} API calls Discount per Year.</p>
+            </div>
+            <div class="card-list__item" *ngFor="let feature of plan?.features">
+              <img
+                class="img"
+                src="assets/landing/svg/checkmark.svg"
+                alt="checkmark"
+              />
+              <p>{{ feature?.name }}</p>
+            </div>
+          </div>
+          <button class="btn_outlined btn_md w-100">
+            Select {{ plan?.name }}
+          </button>
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-container>

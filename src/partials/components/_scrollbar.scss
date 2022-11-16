@@ -1,0 +1,28 @@
+// SCROLLBAR REDESIGN
+html {
+  --scrollbarBG: #eeeeee;
+  --thumbBG: #5c718a;
+}
+body::-webkit-scrollbar,
+body *::-webkit-scrollbar {
+  width: 11px;
+  @include respond(tab-port) {
+    display: none;
+    -ms-overflow-style: none;
+  }
+}
+body,
+body * {
+  scrollbar-width: 5px;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+body::-webkit-scrollbar-track,
+body *::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+body::-webkit-scrollbar-thumb,
+body *::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 10px;
+  border: 3px solid var(--scrollbarBG);
+}

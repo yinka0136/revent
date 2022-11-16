@@ -1,0 +1,50 @@
+@import "~@angular/material/theming";
+@import "partials/abstract/variables";
+@include mat-core();
+
+$mat-primary-color: mat-palette($mat-purple);
+$mat-accent-color: mat-palette($mat-purple, A100, A400);
+$mat-warn-color: mat-palette($mat-red, A200, A100, A400);
+
+$light-theme: mat-light-theme(
+  $mat-primary-color,
+  $mat-accent-color,
+  $mat-warn-color
+);
+
+@include angular-material-theme($light-theme);
+
+$custom-typography: mat-typography-config(
+  $font-family: $nunito_font !important,
+);
+@include mat-core($custom-typography);
+
+$background-primary: $light-100;
+$background-accent: $light-100;
+$background-warn: $warning;
+$font-color-default: #191e51;
+
+$app-primary: mat-palette($mat-light-green, 700);
+$app-accent: mat-palette($mat-cyan, 800);
+$app-warn: mat-palette($mat-red, 400);
+
+$app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
+
+@mixin snack-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .mat-snack-bar-container {
+    background-color: $background-accent !important;
+    color: $font-color-default;
+    position: relative;
+    margin-right: 3.5rem !important;
+    border-radius: 2rem;
+    .mat-simple-snackbar {
+      padding-left: 3rem;
+    }
+  }
+}
+
+@include snack-theme($app-theme);

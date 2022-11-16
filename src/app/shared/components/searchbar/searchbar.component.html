@@ -1,0 +1,53 @@
+<div class="search-wrapper form_group">
+  <div class="flex">
+    <div class="search-wrapper-input">
+      <div class="_icon">
+        <span class="_search">
+          <img src="assets/icons/search.svg" />
+        </span>
+      </div>
+      <input 
+        #searchQuery
+        type="text"
+        class="form-control"
+        (keyup)="getSearchQuery(searchQuery.value, $event)"
+        placeholder="Search brand or generic name"
+        [formControl]="searchForm"
+      />
+      <span
+        class="_clear"
+        (click)="getSearchQuery('', { keyCode: '' }, true)"
+        *ngIf="searchQuery.value != ''"
+      >
+        <img src="assets/icons/close.svg" />
+      </span>
+    </div>
+
+    <div class="btn-wrapper">
+      <button class="btn btn-primary" (click)="searchPressed()">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_567_1227)">
+            <path
+              d="M12.8337 12.8337L11.667 11.667M6.70866 12.2503C9.76923 12.2503 12.2503 9.76923 12.2503 6.70866C12.2503 3.64808 9.76923 1.16699 6.70866 1.16699C3.64808 1.16699 1.16699 3.64808 1.16699 6.70866C1.16699 9.76923 3.64808 12.2503 6.70866 12.2503Z"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_567_1227">
+              <rect width="14" height="14" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>

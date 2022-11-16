@@ -1,0 +1,55 @@
+<app-main-header
+  title="Good {{
+    hour < 12 ? 'morning' : hour >= 12 && hour <= 17 ? 'afternoon' : 'evening'
+  }},  {{ userName }}"
+  paragraph="Welcome. Here’s the latest update on your Klinicly account."
+></app-main-header>
+
+<div class="main">
+  <div class="row">
+    <div class="col-12 col-md-9 col-lg-9">
+      <div class="row">
+        <div class="col-12 col-md-4 col-lg-4">
+          <app-report-card
+            [name]="'All API Calls'"
+            [count]="dashboardCount?.totalCallCount"
+            color="purple"
+            [loading]="isLoadingDashboardCount"
+          ></app-report-card>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+          <app-report-card
+            [name]="'API Calls Used'"
+            [count]="dashboardCount?.usedCallCount"
+            color="pink"
+            [loading]="isLoadingDashboardCount"
+          ></app-report-card>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+          <app-report-card
+            [name]="'API Calls Remaining'"
+            [count]="dashboardCount?.unusedCallCount"
+            color="aqua"
+            [loading]="isLoadingDashboardCount"
+          ></app-report-card>
+        </div>
+      </div>
+      <div class="row">
+        <app-key
+          [error_message]="error_message"
+          [key]="key"
+          [isLoading]="isLoadingAccessKey"
+          (requestAccessKey)="getAccessKey()"
+        >
+        </app-key>
+      </div>
+      <div class="row">
+        <app-graph> </app-graph>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 col-lg-3">
+      <app-upgrade> </app-upgrade>
+      <app-updates></app-updates>
+    </div>
+  </div>
+</div>

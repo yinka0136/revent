@@ -1,0 +1,108 @@
+@import "assets/fonts/Nunito/stylesheet.css";
+
+body {
+  font-family: $nunito_font !important;
+  // color: $blue-700;
+  // background: $light-200;
+}
+
+.mat-typography p {
+  margin: 0;
+  font-family: $nunito_font !important;
+}
+
+.mat-typography h3 {
+  font-family: $nunito_font_bold;
+  margin: 0;
+}
+
+.mat-typography h4 {
+  font-family: $nunito_font_bold;
+  margin: 0;
+}
+
+.mat-typography h5 {
+  margin: 0;
+}
+
+.mat-typography h2 {
+  margin: 0;
+  font-family: $nunito_font_bold;
+}
+
+.disaplay_text {
+  font-size: 5.4rem !important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $nunito_font_bold;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: 4.8rem;
+  @include respond(phone) {
+    font-size: 3rem !important;
+  }
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 4rem !important;
+  @include respond(phone) {
+    font-size: 2.4rem !important;
+  }
+}
+
+h3 {
+  font-size: 2.4rem !important;
+  margin-bottom: 0;
+}
+
+h4 {
+  font-size: 2rem;
+  margin-bottom: 0;
+  @include respond(phone) {
+    font-size: 1.6rem !important;
+  }
+}
+
+h5 {
+  font-size: 1.2rem !important;
+  margin-bottom: 0;
+}
+h6 {
+  font-size: 1.6rem !important;
+}
+
+.XS {
+  font-size: 1.4rem !important;
+}
+
+p {
+  margin-bottom: 0;
+  @include screenSize(XS) {
+    font-size: 1.2rem !important;
+  }
+  @include screenSize(S) {
+    font-size: 1.4rem !important;
+  }
+  @include screenSize(M) {
+    font-size: 1.6rem;
+  }
+  @include screenSize(L) {
+    font-size: 1.8rem;
+  }
+  @include screenSize(XL) {
+    font-size: 2rem;
+  }
+}
+
+a {
+  @include respond(phone) {
+    font-size: 1.4rem !important;
+  }
+}

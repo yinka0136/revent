@@ -1,0 +1,9 @@
+<div class="count">
+  <div class="head" *ngIf="!loading">
+    <h4>{{ count }}+</h4>
+    <p>{{ name }}</p>
+  </div>
+  <div class="head" *ngIf="loading">
+    <app-global-loader [diameter]="20"></app-global-loader>
+  </div>
+</div>

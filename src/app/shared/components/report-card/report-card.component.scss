@@ -1,0 +1,65 @@
+@import "partials/abstract/variables";
+
+.card {
+  margin-bottom: 1.6rem;
+  border: none;
+  cursor: pointer;
+  color: $body;
+  position: relative;
+  background: $light-100;
+  box-shadow: 0px 10px 20px rgba(37, 99, 235, 0.1);
+  border-radius: 0.8rem;
+  padding: 2.4rem 1.6rem !important;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &:hover {
+    transform: (scale(1.03));
+  }
+
+  h3 {
+    font-family: $nunito_font_extra_bold;
+    font-weight: 900;
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    color: $header;
+    margin-bottom: 0.4rem;
+  }
+  p {
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 150%;
+    color: $body;
+  }
+
+  .img-bg {
+    margin-right: 1.6rem;
+    padding: 1.2rem;
+    filter: drop-shadow(0px 6.54545px 13.0909px rgba(62, 115, 250, 0.16));
+    border-radius: 2rem;
+    background: rgba($dark, 0.15);
+    svg path {
+      fill: $dark;
+    }
+    &.purple {
+      background: rgba($purple, 0.15);
+      svg path {
+        fill: $purple;
+      }
+    }
+    &.pink {
+      background: rgba($pink, 0.15);
+      svg path {
+        fill: $pink;
+      }
+    }
+    &.aqua {
+      background: rgba($aqua, 0.15);
+      svg path {
+        fill: $aqua;
+      }
+    }
+  }
+}

@@ -1,0 +1,1319 @@
+@import "partials/abstract/mixins";
+@import "partials/abstract/variables";
+
+$nav_height: 7.2rem;
+main {
+  overflow: hidden;
+  padding: 0;
+}
+.heading__2 {
+  font-weight: bold;
+  font-size: 7.8rem;
+  line-height: 140%;
+  text-align: center;
+  color: #061238;
+
+  @include respond(tab-port) {
+    font-size: 6rem;
+
+    & span {
+      display: block;
+    }
+  }
+
+  @include respond(phone) {
+    font-size: 4rem;
+    text-align: left;
+    padding: 0 3rem;
+
+    & span {
+      display: block;
+    }
+  }
+}
+.heading__3 {
+  font-weight: bold;
+  font-size: 70px;
+  line-height: 91px;
+  color: #ffffff;
+}
+.heading__6 {
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 2.1rem;
+  color: #5f6675;
+}
+.heading__4 {
+  font-weight: bold;
+  font-size: 3.8rem;
+  line-height: 3.9rem;
+  color: #061238;
+
+  @include respond(phone) {
+    font-size: 3rem;
+    text-align: left;
+    line-height: 3.9rem;
+  }
+}
+
+section {
+  height: 100%;
+  @include respond(tab-port) {
+    padding: 0 3rem;
+  }
+}
+
+.u-container {
+  width: 100%;
+  max-width: 112rem;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+@include respond(phone) {
+  .sm-hide {
+    display: none;
+  }
+}
+
+.heading {
+  position: relative;
+  height: 100vh;
+  margin: 0 auto;
+  width: 100%;
+  animation-name: FadeInOut;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .pill {
+    position: absolute;
+    &:nth-child(1) {
+      left: 5%;
+      top: 15%;
+    }
+    &:nth-child(2) {
+      top: 30%;
+      right: 5%;
+    }
+    &:nth-child(3) {
+      left: 5%;
+      bottom: 10%;
+    }
+    &:nth-child(4) {
+      right: 15%;
+      bottom: 33%;
+    }
+  }
+
+  &_counts {
+    position: absolute;
+    right: 0;
+    top: calc(13.2rem + $nav_height);
+  }
+  &_hero {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: calc(10rem + $nav_height);
+    @include respond(phone) {
+      padding-top: 2rem;
+    }
+  }
+
+  &__header {
+    max-width: 76.2rem;
+    font-family: $nunito_font_extra_bold;
+    font-weight: 900;
+    font-size: 5.4rem;
+    line-height: 110%;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: $header;
+    span {
+      color: $accent;
+    }
+    margin-bottom: 2.4rem;
+  }
+
+  &__paragraph {
+    max-width: 76.2rem;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 150%;
+    text-align: center;
+    color: $body;
+    margin-bottom: 4rem;
+    @include respond(phone) {
+      margin-bottom: 2rem;
+    }
+  }
+  &__buttons {
+    & > :first-child {
+      margin-right: 1.6rem;
+    }
+    margin-bottom: 5.5rem;
+    @include respond(phone) {
+      margin-bottom: 2rem;
+    }
+  }
+  &__img {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    margin-left: 15%;
+    margin-top: auto;
+  }
+  @include respond(phone) {
+    padding: 11.6rem 0 0;
+    height: auto;
+
+    & .img-container {
+      overflow-x: hidden;
+    }
+  }
+}
+
+.sectors {
+  height: 100%;
+  margin: 8rem 0;
+  padding: 5rem 0 10rem;
+  // margin-top: 47rem;
+  &__heading {
+    text-align: center;
+    margin-bottom: 6.4rem;
+    font-family: $nunito_font_extra_bold;
+    span {
+      color: $accent;
+    }
+  }
+  &_card {
+    padding: 3.2rem 3.2rem 7.2rem;
+    background: $light-100;
+    box-shadow: 0px 1.2rem 2.4rem rgba(37, 99, 235, 0.1);
+    border-radius: 1.6rem;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    height: 100%;
+    @include respond(phone) {
+      padding: 2rem;
+    }
+    &-img {
+      width: 7.2rem;
+      height: 7.2rem;
+      background: $light-200;
+      border-radius: 2.4rem;
+      @include respond(phone) {
+        border-radius: 1.2rem;
+        width: 5rem;
+        height: 5rem;
+      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2.4rem;
+    }
+    h4 {
+      font-family: $nunito_font_extra_bold;
+      margin-bottom: 1.2rem;
+      font-weight: 900;
+      font-size: 1.8rem;
+      line-height: 2.1rem;
+      text-align: center;
+    }
+    p {
+      text-align: center;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 150%;
+      color: $header;
+    }
+  }
+
+  @include respond(phone) {
+    padding: 2rem 0;
+    margin: 2rem 0;
+
+    & .u-container {
+      padding: 0 2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+    }
+    .row {
+      & :not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    & .u-container .flex-container:first-child {
+      margin-bottom: 1.4rem;
+    }
+
+    & .u-container .flex-container:last-child img {
+      width: 100%;
+    }
+  }
+}
+
+.about {
+  background: $light-200;
+  padding: 7.5rem 0 9rem;
+  & > :not(:last-child) {
+    margin-bottom: 7rem;
+  }
+  &__heading {
+    font-family: $nunito_font_extra_bold;
+    color: $light-100;
+    span {
+      color: $aqua;
+    }
+    margin-bottom: 3.2rem;
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__paragraph {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 150%;
+    color: $light-100;
+    margin-bottom: 3.2rem;
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__img {
+    border-radius: 2.4rem;
+    @include respond(phone) {
+      border-radius: 1.2rem;
+      margin-top: 1.4rem;
+    }
+  }
+  &_card {
+    background: rgba(15, 23, 51, 0.85);
+    backdrop-filter: blur(1rem);
+    border-radius: 2.4rem;
+    padding: 4rem 6rem;
+    @include respond(phone) {
+      padding: 2rem;
+      border-radius: 1.2rem;
+    }
+  }
+
+  @include respond(phone) {
+    padding: 2rem 0;
+
+    & .flex-container {
+      flex-direction: column;
+      & :not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    & .u-container {
+      padding: 0 2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+    }
+
+    & .u-container .flex-container:first-child {
+      margin-bottom: 1.4rem;
+    }
+
+    & .u-container .flex-container:last-child img {
+      width: 100%;
+    }
+  }
+}
+
+.lifting {
+  height: 100%;
+  margin: 8rem 0;
+  padding: 4.3rem 0 0rem;
+  &__heading {
+    margin-bottom: 4.6rem;
+    font-family: $nunito_font_extra_bold;
+    span {
+      color: $accent;
+    }
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__img {
+    border-radius: 2.4rem;
+    width: 100%;
+    @include respond(phone) {
+      border-radius: 1.2rem;
+    }
+  }
+  &_timeline {
+    & > :not(:last-child) {
+      padding-bottom: 3.2rem;
+      @include respond(phone) {
+        padding-bottom: 2rem;
+      }
+    }
+    &-item {
+      position: relative;
+      padding-left: 3.4rem;
+      @include respond(phone) {
+        padding-left: 2rem;
+      }
+      border-left: 0.1rem dotted rgba($dark, 0.2);
+      &__paragraph {
+        font-weight: 400;
+        font-size: 1.6rem;
+        line-height: 150%;
+        color: $body;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        height: 0.8rem;
+        width: 0.8rem;
+        left: -0.4rem;
+        top: 0.8rem;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: -0.8rem;
+        top: 0.4rem;
+        padding: 0.6rem;
+        border-radius: 50%;
+        outline: 0.6rem solid $light-100;
+      }
+      &.one::after {
+        border: 0.2rem solid rgba($accent, 0.3);
+      }
+      &.two::after {
+        border: 0.2rem solid rgba($pink, 0.3);
+      }
+      &.three::after {
+        border: 0.2rem solid rgba(#6a36b3, 0.3);
+      }
+      &.four::after {
+        border: 0.2rem solid rgba($aqua, 0.3);
+      }
+      &.five::after {
+        border: 0.2rem solid rgba($orange, 0.3);
+      }
+      &.one::before {
+        background: $accent;
+      }
+      &.two::before {
+        background: $pink;
+      }
+      &.three::before {
+        background: #6a36b3;
+      }
+      &.four::before {
+        background: $aqua;
+      }
+      &.five::before {
+        background: $orange;
+      }
+    }
+  }
+
+  @include respond(phone) {
+    padding: 2rem 0;
+    margin: 2rem 0;
+    & .flex-container {
+      flex-direction: column;
+      & > :not(:last-child) {
+        margin-bottom: 0.8rem;
+      }
+    }
+
+    & .u-container {
+      padding: 0 2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+    }
+
+    & .u-container .flex-container:first-child {
+      margin-bottom: 1.4rem;
+    }
+
+    & .u-container .flex-container:last-child img {
+      width: 100%;
+    }
+  }
+}
+
+.partners {
+  margin: 2rem 0 14rem;
+  &__heading {
+    text-align: center;
+    font-family: $nunito_font_extra_bold;
+    span {
+      color: $accent;
+    }
+    margin-bottom: 4.8rem;
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include respond(phone) {
+      overflow: scroll;
+    }
+  }
+  .u-container {
+    border-top: 0.1rem solid rgba($dark, 0.1);
+    border-bottom: 0.1rem solid rgba($dark, 0.1);
+    padding: 6.3rem 0rem 7.8rem;
+  }
+
+  @include respond(phone) {
+    padding: 2rem 0;
+    margin: 2rem 0;
+
+    & .u-container {
+      padding: 1rem;
+    }
+  }
+}
+
+.documentation {
+  margin-bottom: 19.3rem;
+  position: relative;
+  background: $dark;
+  &__img {
+    position: absolute;
+    right: 0;
+    bottom: -11rem;
+    border-bottom-left-radius: 1.2rem;
+    @include respond(phone) {
+      width: 80%;
+      bottom: -13rem;
+    }
+  }
+  &__heading {
+    font-family: $nunito_font_extra_bold;
+    color: $light-100;
+    span {
+      color: $aqua;
+    }
+    margin-bottom: 2.4rem;
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__paragraph {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 150%;
+    color: $light-100;
+    margin-bottom: 4.8rem;
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  &_list {
+    &__heading {
+      font-family: $nunito_font_extra_bold;
+      font-weight: 900;
+      font-size: 2rem;
+      line-height: 2.4rem;
+      color: $light-100;
+    }
+    &-item {
+      margin-bottom: 4.8rem;
+      @include respond(phone) {
+        margin-bottom: 1.2rem;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        img {
+          margin-right: 3.2rem;
+          width: 3.2rem;
+          height: 3.2rem;
+          @include respond(phone) {
+            margin-right: 1rem;
+            width: 2.4rem;
+            height: 2.4rem;
+          }
+        }
+      }
+    }
+  }
+  & .u-container {
+    padding: 10rem 0 7.8rem;
+  }
+
+  @include respond(phone) {
+    padding: 6rem 0;
+
+    & .flex-container {
+      flex-direction: column;
+    }
+
+    & .u-container {
+      padding: 0 2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+    }
+
+    & .u-container .flex-container:first-child {
+      margin-bottom: 1.4rem;
+    }
+  }
+}
+
+.plans {
+  height: 100%;
+  margin: 8rem 0;
+  padding: 5rem 0 10rem;
+  // margin-top: 47rem;
+  &__heading {
+    text-align: center;
+    margin-bottom: 6.4rem;
+    font-family: $nunito_font_extra_bold;
+    span {
+      color: $accent;
+    }
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &_card {
+    cursor: crosshair;
+    padding: 0.8rem 0.8rem 4rem;
+    background: $light-100;
+    border: 0.1rem solid rgba(15, 23, 51, 0.1);
+    box-shadow: 0 1.2rem 2.4rem rgba(37, 99, 235, 0.1);
+    border-radius: 1.6rem;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+    @include respond(phone) {
+      padding: 0.8rem;
+    }
+
+    &-head {
+      width: 100%;
+      margin-bottom: 0.8rem;
+      border-radius: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1.6rem;
+      transition: all 0.6s ease-in-out;
+      @include respond(phone) {
+        padding: 1rem;
+      }
+
+      &__title {
+        font-family: $nunito_font_extra_bold;
+        margin-bottom: 1.6rem;
+        text-align: center;
+        @include respond(phone) {
+          margin-bottom: 0rem;
+        }
+      }
+      &__border {
+        margin: auto;
+        margin-bottom: 3rem;
+        border: 0.4rem solid $accent;
+        width: 3.2rem;
+        border-radius: 1rem;
+        @include respond(phone) {
+          margin-bottom: 0rem;
+        }
+      }
+      &__price {
+        margin: auto;
+        display: flex;
+        align-items: baseline;
+        h2 {
+          font-family: $nunito_font_extra_bold;
+          margin-right: 0.4rem;
+        }
+        p {
+          font-weight: 700;
+          font-size: 1.8rem;
+          line-height: 150%;
+          color: $body;
+        }
+      }
+    }
+
+    &-list {
+      margin-bottom: 5.4rem;
+      @include respond(phone) {
+        margin-bottom: 1.6rem;
+        padding-top: 1rem;
+      }
+
+      padding-top: 3.2rem;
+      border-top: 0.1rem solid rgba($dark, 0.1);
+      &__item {
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        img {
+          margin-right: 1.2rem;
+        }
+        p {
+          font-weight: 400;
+          font-size: 1.4rem;
+          line-height: 2.1rem;
+          color: $body;
+        }
+      }
+    }
+
+    &:hover {
+      .plans_card-head {
+        background: $accent;
+        .plans_card-head__title {
+          color: $light-100;
+        }
+        .plans_card-head__border {
+          border: 0.4rem solid $light-100;
+        }
+        .plans_card-head__price {
+          h2 {
+            color: $light-100;
+          }
+          p {
+            color: rgba($light-100, 0.8);
+          }
+        }
+      }
+
+      .btn_outlined {
+        background: $accent;
+        box-shadow: 0 0.4rem 0.8rem -0.1rem rgba(35, 65, 179, 0.25);
+        border-radius: 0.8rem;
+        font-weight: 700;
+        line-height: 150%;
+        color: $light-100;
+        transition: 0.3s all ease-in-out;
+        border: none;
+        &:hover,
+        &:focus {
+          border-radius: 4rem;
+          background: linear-gradient(180deg, $gradient1 0%, $gradient2 100%);
+        }
+        &:disabled {
+          background: rgba($header, 0.15);
+        }
+      }
+    }
+  }
+
+  @include respond(phone) {
+    padding: 2rem 0;
+    margin: 2rem 0;
+
+    & .u-container {
+      padding: 0 2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+    }
+    .img {
+      margin-bottom: 0 !important;
+    }
+    .row {
+      & :not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+    .row > {
+      margin-bottom: 2rem;
+    }
+
+    & .u-container .flex-container:first-child {
+      margin-bottom: 1.4rem;
+    }
+
+    & .u-container .flex-container:last-child img {
+      width: 100%;
+    }
+  }
+}
+
+.answers {
+  height: 100%;
+  padding: 2.2rem 0 5.7rem;
+  &__heading {
+    text-align: center;
+    margin-bottom: 6.4rem;
+    font-family: $nunito_font_extra_bold;
+    span {
+      color: $accent;
+    }
+  }
+
+  .u-container {
+    max-width: 93.4rem;
+  }
+  @include respond(phone) {
+    padding: 2rem 0;
+    margin: 2rem 0;
+
+    & .u-container {
+      padding: 0 2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+    }
+    .row {
+      & :not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    & .u-container .flex-container:first-child {
+      margin-bottom: 1.4rem;
+    }
+
+    & .u-container .flex-container:last-child img {
+      width: 100%;
+    }
+  }
+}
+
+.questions {
+  background: $light-200;
+  height: 100%;
+  margin-top: 8rem;
+  padding: 7.2rem 0 8.4rem;
+  &__heading {
+    margin-bottom: 1.6rem;
+    font-family: $nunito_font_extra_bold;
+    span {
+      color: $accent;
+    }
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__paragraph {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 150%;
+    color: $body;
+    margin-bottom: 4rem;
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &_type {
+    display: flex;
+    margin-bottom: 3.2rem;
+    @include respond(phone) {
+      margin-bottom: 1rem;
+    }
+    img {
+      margin-right: 1.8rem;
+    }
+    &__heading {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: $body;
+    }
+  }
+
+  &_card {
+    width: 100%;
+    background: $light-100;
+    border: 0.1rem solid rgba($dark, 0.1);
+    box-shadow: 0px 12px 24px rgba(37, 99, 235, 0.1);
+    border-radius: 1.6rem;
+    padding: 3.2rem;
+    @include respond(phone) {
+      padding: 1.2rem;
+      border-radius: 0.8rem;
+    }
+  }
+
+  @include respond(phone) {
+    padding: 2rem 0;
+    margin: 2rem 0;
+    & .flex-container {
+      flex-direction: column;
+      & > :not(:last-child) {
+        margin-bottom: 0.8rem;
+      }
+    }
+
+    & .u-container {
+      padding: 0 2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+    }
+
+    & .u-container .flex-container:first-child {
+      margin-bottom: 1.4rem;
+    }
+  }
+}
+
+.burden {
+  background: $light-100;
+  height: 100%;
+  padding: 12rem 0;
+
+  @include respond(phone) {
+    padding: 2rem 0;
+    margin: 2rem 0;
+    & .flex-container {
+      flex-direction: column;
+      & > :not(:last-child) {
+        margin-bottom: 0.8rem;
+      }
+    }
+
+    & .u-container {
+      padding: 0 2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+    }
+
+    & .u-container .flex-container:first-child {
+      margin-bottom: 1.4rem;
+    }
+
+    & .u-container .flex-container:last-child img {
+      width: 100%;
+    }
+  }
+}
+
+.form {
+  &__inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & > :not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+  &__group {
+    background: #ffffff;
+    box-shadow: 0.3rem 0.4rem 1.2rem rgba(0, 26, 78, 0.1);
+    border-radius: 0.3rem;
+    min-width: 36rem;
+    height: 6.5rem;
+    display: flex;
+    align-items: center;
+  }
+  &__icon {
+    padding-right: 2.3rem;
+    padding-left: 3rem;
+  }
+  &__input {
+    height: 100%;
+    flex: 1;
+    border: unset;
+  }
+}
+.hero {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6rem;
+  & > :not(:last-child) {
+    margin-right: 10.2rem;
+  }
+  @include respond(tab-land) {
+    padding: 0 2.5rem;
+    & > :not(:last-child) {
+      margin-right: 5.2rem;
+    }
+  }
+  .first-column {
+    & > * {
+      text-align: left;
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 6rem;
+      line-height: 7.8rem;
+
+      color: #061238;
+      margin-bottom: 3.4rem;
+    }
+    p {
+      font-size: 2rem;
+      line-height: 3.2rem;
+      color: #657786;
+    }
+  }
+  .second-column {
+    background: #ffffff;
+    box-shadow: 1rem 0.5rem 4.4rem rgba(0, 0, 0, 0.03);
+    border-radius: 1.4rem;
+    padding: 4.2rem 5.2rem;
+    width: 45.2rem;
+  }
+  @include respond(tab-port) {
+    flex-direction: column;
+    .first-column {
+      display: none;
+    }
+    .second-column {
+      background: transparent;
+      box-shadow: unset;
+      border-radius: unset;
+      padding: unset;
+      width: 100%;
+    }
+  }
+}
+input::placeholder,
+input::-moz-placeholder,
+input::-webkit-input-placeholder {
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 2.1rem;
+  color: #d9d9d9;
+}
+
+.u-img-container {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 0rem 0.4rem 1.1rem #e1e8ed;
+  border-radius: 0.8rem;
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  & > * {
+    width: 100%;
+  }
+}
+.u-m-width-57 {
+  max-width: 57rem;
+}
+.u-m-24 {
+  margin-bottom: 2.4rem;
+}
+.highlight {
+  padding: 15rem 0;
+  background: #00adff;
+  position: relative;
+  z-index: 1;
+
+  @include respond(phone) {
+    padding: 8rem 0;
+    margin-bottom: 8.4rem !important;
+
+    & .u-container {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  &__heading {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 4.8rem;
+
+    @include respond(phone) {
+      padding: 0;
+      font-size: 3.4rem;
+      line-height: 4.4rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  &__paragraph {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 153.8%;
+    text-align: center;
+    color: #ffffff;
+    max-width: 72.8rem;
+    margin: 0 auto;
+
+    @include respond(phone) {
+      font-size: 1.6rem;
+    }
+  }
+
+  & #memoji-container {
+    &-1 {
+      position: absolute;
+      bottom: -50px;
+      width: 100%;
+
+      & > .memoji-item {
+        max-width: 112rem;
+        margin: auto;
+        & img {
+          margin-left: -7.5rem;
+          height: 100px;
+        }
+
+        @include respond(phone) {
+          padding-left: 1rem;
+
+          & img {
+            margin-left: 0;
+            height: 50px;
+          }
+        }
+      }
+
+      @include respond(phone) {
+        bottom: -25px;
+      }
+    }
+
+    &-2 {
+      position: absolute;
+      top: 10rem;
+      width: 100%;
+
+      & > .memoji-item {
+        max-width: 112rem;
+        margin: auto;
+        padding-left: -3rem;
+        & img {
+          height: 80px;
+        }
+
+        @include respond(phone) {
+          padding-left: 2.4rem;
+
+          & img {
+            height: 40px;
+          }
+        }
+      }
+
+      @include respond(phone) {
+        top: 4rem;
+      }
+    }
+
+    &-3 {
+      position: absolute;
+      bottom: 3rem;
+      width: 100%;
+
+      & > .memoji-item {
+        max-width: 112rem;
+        margin: auto;
+        padding-left: 20.568rem;
+        & img {
+          height: 80px;
+        }
+
+        @include respond(phone) {
+          padding-left: 10rem;
+
+          & img {
+            height: 40px;
+          }
+        }
+      }
+    }
+
+    &-4 {
+      position: absolute;
+      top: 6rem;
+      width: 100%;
+
+      & > .memoji-item {
+        max-width: 112rem;
+        margin: auto;
+        padding-right: 19.8rem;
+        text-align: right;
+        & img {
+          height: 100px;
+        }
+
+        @include respond(phone) {
+          padding-right: 10rem;
+
+          & img {
+            height: 50px;
+          }
+        }
+      }
+
+      @include respond(phone) {
+        top: 3rem;
+      }
+    }
+
+    &-5 {
+      position: absolute;
+      top: -58px;
+      width: 100%;
+
+      & > .memoji-item {
+        max-width: 112rem;
+        margin: auto;
+        text-align: right;
+        & img {
+          height: 80px;
+
+          @include respond(phone) {
+            height: 40px;
+          }
+        }
+      }
+
+      @include respond(phone) {
+        display: none;
+      }
+    }
+
+    &-6 {
+      position: absolute;
+      bottom: 5.745rem;
+      width: 100%;
+
+      & > .memoji-item {
+        max-width: 112rem;
+        margin: auto;
+        text-align: right;
+        & img {
+          height: 113px;
+
+          @include respond(phone) {
+            height: 56px;
+          }
+        }
+      }
+
+      @include respond(phone) {
+        bottom: 3.2rem;
+      }
+    }
+  }
+}
+.u-align-top {
+  align-self: flex-start;
+}
+
+.cta {
+  padding: 10rem;
+  text-align: center;
+  &__heading {
+    color: #061238;
+    margin-bottom: 2rem;
+  }
+  &__paragraph {
+    font-weight: normal;
+    font-size: 2rem;
+    line-height: 153.8%;
+    color: #657786;
+    margin-bottom: 6rem;
+  }
+}
+
+.u-relative {
+  position: relative;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  @include respond(tab-port) {
+    display: none;
+  }
+  &.circle--1 {
+    background: linear-gradient(93.87deg, #ffad00 0%, #ffc701 98.9%);
+    width: 27rem;
+    height: 27rem;
+    top: -20%;
+    left: -10%;
+    color: #ffad00;
+  }
+  &.circle--2 {
+    background: #ff7b01;
+    width: 15rem;
+    height: 15rem;
+    right: 15%;
+    top: 25%;
+    color: #ff7b01;
+  }
+  &.circle--3 {
+    background: transparent;
+    width: 30rem;
+    height: 30rem;
+    bottom: -5%;
+    left: 20%;
+    color: #ffad00;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    border: 1px solid currentColor;
+    background: transparent;
+    border-radius: 50%;
+    transform: scale(1.1);
+  }
+}
+
+.loggedIn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    text-align: center;
+    margin-bottom: 2.4rem;
+    font-size: 1.8rem;
+  }
+}
+
+@keyframes FadeInOut {
+  0% {
+    background-image: url(../../../../assets/landing/img/gradient1.svg);
+  }
+  33% {
+    background-image: url(../../../../assets/landing/img/gradient2.svg);
+  }
+  100% {
+    background-image: url(../../../../assets/landing/img/gradient3.svg);
+  }
+}

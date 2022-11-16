@@ -1,0 +1,121 @@
+@import "partials/abstract/mixins";
+@import "partials/abstract/variables";
+
+.plan {
+  &__paragraph {
+    margin-bottom: 1.6rem;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    & > li {
+      cursor: pointer;
+      list-style: none;
+      margin-left: 0;
+      margin-bottom: 5px;
+      position: relative;
+      &.active {
+        transform: scaleX(1.02);
+        span {
+          display: block;
+        }
+        .plan_item {
+          border-color: #077af5;
+          box-sizing: border-box;
+          border-width: 0.4rem;
+        }
+        h4 {
+          color: $accent;
+        }
+      }
+
+      .check {
+        transition: 0.2s all ease-in-out;
+        background: #077af5;
+        background-image: url(https://assets.nflxext.com/en_us/Account/sprite_icons_MyAcct_63x205_v2.png);
+        background-position: -17px -325px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        display: none;
+        font-size: 1em;
+        left: -1em;
+        margin-top: -1em;
+        position: absolute;
+        text-indent: -999em;
+        top: 50%;
+        width: 3em;
+        height: 3em;
+      }
+    }
+  }
+  &__heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.6rem;
+  }
+  &__paragraph {
+    display: list-item;
+    list-style: disc;
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    margin-left: 2em;
+  }
+  &__price {
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+  &_item {
+    transition: 0.2s all ease-in-out;
+    border-width: 0.4rem;
+    min-height: 10.8rem;
+    width: 100%;
+    background: $light-100;
+    border: 0.2rem solid #ccc;
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+    margin-bottom: 0.5em;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    @include respond(phone) {
+      flex-direction: column;
+    }
+    .left {
+      background: $light-200;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      width: 13rem;
+      max-width: 13rem;
+      @include respond(phone) {
+        width: 100%;
+        max-width: 100%;
+        border-bottom: 0.1rem solid rgba($color: $dark, $alpha: 0.1);
+      }
+      h4 {
+        display: table-cell;
+        white-space: nowrap;
+        font-size: inherit;
+        font-weight: 700;
+        vertical-align: middle;
+        font-size: 1.4rem;
+        margin: 0;
+        letter-spacing: 0 !important;
+        .name {
+          font-size: 1.25em;
+        }
+      }
+    }
+    .right {
+      width: 100%;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

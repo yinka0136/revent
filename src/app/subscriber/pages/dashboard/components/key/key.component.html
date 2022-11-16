@@ -1,0 +1,62 @@
+<div class="key">
+  <div class="key_top">
+    <h4>API Key</h4>
+    <p class="text-danger">{{ error_message }}</p>
+  </div>
+  <div class="key_api form_group">
+    <div class="input-group">
+      <input
+        [type]="showAccessKey ? 'text' : 'password'"
+        class="form-control"
+        aria-label="Accesskey"
+        aria-describedby="Accesskey"
+        disabled
+        [value]="key != '' ? key : 'No Access Key'"
+      />
+      <span
+        class="input-group-text"
+        id="Accesskey"
+        (click)="showAccessKey = !showAccessKey"
+        >{{ showAccessKey ? "Hide" : "Reveal" }}
+        <img
+          src="assets/icons/eye-icon-{{ showAccessKey ? 'close' : 'open' }}.svg"
+          alt="eye close icon"
+          class="ms-2"
+      /></span>
+    </div>
+
+    <button
+      class="btn_primary btn_sm"
+      (click)="requestAccessKey.emit(true)"
+      [disabled]="isLoading"
+    >
+      <span *ngIf="!isLoading">Reset API Key</span>
+      <span *ngIf="isLoading">
+        <app-global-loader [diameter]="20" [inline]="true"></app-global-loader>
+      </span>
+    </button>
+  </div>
+  <div class="key_copy" (click)="copyToClipboard()">
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10.334 8.76699H8.88732C7.70065 8.76699 6.73398 7.80699 6.73398 6.61366V5.16699C6.73398 4.89366 6.51398 4.66699 6.23398 4.66699H4.12065C2.58065 4.66699 1.33398 5.66699 1.33398 7.45366V11.8803C1.33398 13.667 2.58065 14.667 4.12065 14.667H8.04732C9.58732 14.667 10.834 13.667 10.834 11.8803V9.26699C10.834 8.98699 10.6073 8.76699 10.334 8.76699Z"
+        fill="#596180"
+      />
+      <path
+        d="M11.8805 1.33301H10.5672H9.84052H7.95385C6.44716 1.33301 5.22716 2.29301 5.17383 4.00634C5.21383 4.00634 5.24716 3.99967 5.28716 3.99967H7.17385H7.90052H9.21385C10.7538 3.99967 12.0005 4.99967 12.0005 6.78634V8.09967V9.90634V11.2197C12.0005 11.2597 11.9938 11.293 11.9938 11.3263C13.4805 11.2797 14.6672 10.293 14.6672 8.55301V7.23967V5.43301V4.11967C14.6672 2.33301 13.4205 1.33301 11.8805 1.33301Z"
+        fill="#596180"
+      />
+      <path
+        d="M7.98773 4.76748C7.78107 4.56081 7.42773 4.70081 7.42773 4.98748V6.73414C7.42773 7.46748 8.04773 8.06748 8.80773 8.06748C9.28107 8.07414 9.94107 8.07414 10.5077 8.07414C10.7944 8.07414 10.9411 7.74081 10.7411 7.54081C10.0144 6.81414 8.72107 5.51414 7.98773 4.76748Z"
+        fill="#596180"
+      />
+    </svg>
+    <p>Copy to clipboard</p>
+  </div>
+</div>

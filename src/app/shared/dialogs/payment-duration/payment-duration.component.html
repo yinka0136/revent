@@ -1,0 +1,38 @@
+<div class="dialog-header" mat-dialog-title>
+  <h2 mat-dialog-title>Number of Months</h2>
+  <div class="click" mat-dialog-close>
+    <img src="assets/icons/close.svg" alt="close_icon" />
+  </div>
+</div>
+<mat-dialog-content class="mat-typography">
+  <div class="form-group form_group">
+    <label>Enter number of months</label>
+    <input
+      #searchQuery
+      type="number"
+      class="form-control"
+      placeholder="number of months"
+      [formControl]="durationForm"
+      [ngClass]="{ 'is-invalid': durationForm.errors && durationForm.touched }"
+    />
+    <div
+      class="invalid-feedback"
+      *ngIf="durationForm.errors && durationForm.touched"
+    >
+      Enter a number
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close class="btn_outlined btn_md me-4" #close>
+    Cancel
+  </button>
+  <button
+    mat-button
+    cdkFocusInitial
+    class="btn_primary btn_md"
+    (click)="continue()"
+  >
+    Continue
+  </button>
+</mat-dialog-actions>

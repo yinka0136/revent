@@ -1,0 +1,38 @@
+@import "partials/abstract/mixins";
+.body {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0.3rem 0.4rem 1.1rem rgba(0, 8, 37, 0.06);
+  border-radius: 0.4rem;
+  padding: 10rem 0;
+
+  @include respond(phone) {
+    padding: 8rem 0;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__img {
+    width: 36.7rem;
+    margin-bottom: 6rem;
+
+    @include respond(phone) {
+      width: 25rem;
+      margin-bottom: 0;
+    }
+  }
+  &__header {
+    $font-props: 3rem, 500, #415276, 3.9rem;
+    @include text($font-props...);
+    text-align: center;
+    margin-bottom: 1.6rem;
+  }
+  &__text {
+    $font-props: 1.6rem, normal, #b3b7c6, 2.1rem;
+    @include text($font-props...);
+    text-align: center;
+  }
+}

@@ -1,0 +1,40 @@
+@import "partials/abstract/mixins";
+@import "partials/abstract/variables";
+
+.wrapper {
+  &-heading {
+    margin-bottom: 0.8rem;
+    font-family: $nunito_font_extra_bold;
+  }
+  &-paragraph {
+    margin-bottom: 3.2rem;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 150%;
+    color: $body;
+  }
+  &-already {
+    text-align: center;
+    font-family: $nunito_font_bold;
+    color: $body;
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 2.7rem;
+    span {
+      cursor: crosshair;
+      font-family: $nunito_font_extra_bold;
+      color: $accent;
+    }
+    margin-top: 2.4rem;
+  }
+  .forgot {
+    cursor: crosshair;
+    margin-top: 0.4rem;
+    font-family: $lato;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    color: $accent;
+    text-decoration: none;
+  }
+}

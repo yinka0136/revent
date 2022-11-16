@@ -1,0 +1,102 @@
+<app-main-header></app-main-header>
+
+<div class="main">
+  <div class="main_head">
+    <h4 class="main__heading">Tickets</h4>
+    <button class="btn_primary btn_md">New Ticket</button>
+  </div>
+  <div class="main_body">
+    <section class="d-block d-md-none">
+      <div
+        *ngFor="let ticket of filterableTickets"
+        class="border br-8 p-4 mb-5"
+        style="font-size: 1.4rem"
+      >
+        <div class="d-flex">
+          <label class="fw-bold text-body w-30 text-break">Ticket ID:</label>
+          <p class="text-body w-70 ps-3 text-break">
+            {{ ticket?.id || "--" }}
+          </p>
+        </div>
+        <hr />
+        <div class="d-flex">
+          <label class="fw-bold text-body w-30 text-break">Subject:</label>
+          <p class="text-body w-70 ps-3 text-break">
+            {{ ticket?.subject || "--" }}
+          </p>
+        </div>
+        <hr />
+        <div class="d-flex">
+          <label class="fw-bold text-body w-30 text-break">Date:</label>
+          <p class="text-body w-70 ps-3 text-break">
+            {{ (ticket?.date | date) || "--" }}
+          </p>
+        </div>
+        <hr />
+        <div class="d-flex">
+          <label class="fw-bold text-body w-30 text-break">Status:</label>
+          <p class="text-body w-70 ps-3 text-break">
+            {{ ticket?.status || "--" }}
+          </p>
+        </div>
+        <hr />
+        <div class="d-flex">
+          <label class="fw-bold text-body w-30 text-break">Action:</label>
+          <img src="assets/icons/trash.svg" alt="trash" />
+        </div>
+      </div>
+    </section>
+    <section class="dashboard-content d-none d-md-block">
+      <section class="table-responsive">
+        <div>
+          <table class="table caption-top text-nowrap">
+            <ng-container>
+              <thead>
+                <tr>
+                  <th>Ticket ID</th>
+                  <th>Subject</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+            </ng-container>
+            <tbody>
+              <!-- <ng-container *ngIf="ticketsLoading">
+                <tr *ngFor="let dummy of [1, 2, 3, 4, 5]">
+                  <td *ngFor="let item of [1, 2, 3, 4, 5, 6, 7]">
+                    <app-filetra-skeleton-loader
+                      width="10rem"
+                      height="2rem"
+                    ></app-filetra-skeleton-loader>
+                  </td></tr
+              ></ng-container> -->
+              <ng-container *ngIf="!ticketsLoading">
+                <tr *ngFor="let ticket of filterableTickets" class="click">
+                  <td>
+                    {{ ticket?.id }}
+                  </td>
+                  <td>
+                    {{ ticket?.subject }}
+                  </td>
+                  <td>{{ ticket?.date | date }}</td>
+                  <td>{{ ticket?.status }}</td>
+                  <td><img src="assets/icons/trash.svg" alt="trash" /></td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+    <mat-paginator
+      *ngIf="filterableTickets.length > 0"
+      #paginator
+      [length]="20"
+      [pageIndex]="1"
+      [pageSize]="10"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </div>
+</div>

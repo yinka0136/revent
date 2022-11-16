@@ -1,0 +1,21 @@
+@import "partials/abstract/variables";
+.scroll {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.8rem;
+  height: 4.8rem;
+  background: $pink;
+  box-shadow: 0px 4px 8px rgba(13, 13, 64, 0.2);
+  border-radius: 5.6rem;
+  bottom: 4rem;
+  right: 4rem;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  cursor: pointer;
+  &.show-scrollTop {
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+  }
+}

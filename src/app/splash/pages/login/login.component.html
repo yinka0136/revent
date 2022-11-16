@@ -1,0 +1,130 @@
+<div class="wrapper">
+  <h3 class="wrapper-heading">Welcome back</h3>
+  <p class="wrapper-paragraph">Let’s pick up where we left off</p>
+  <form [formGroup]="loginForm">
+    <div class="form_group">
+      <label for="email" class="form-label">Email </label>
+      <input
+        #input
+        type="email"
+        id="email"
+        class="form-control"
+        placeholder="Enter Your Email Address"
+        formControlName="email"
+        (keyup)="checkForKeyEnter($event)"
+        autocomplete="email"
+        [ngClass]="{
+          'is-invalid':
+            (email!.errors?.required && (email!.dirty || email!.touched)) ||
+            (email!.hasError('email') && !email!.hasError('required'))
+        }"
+      />
+      <span
+        class="invalid-feedback"
+        *ngIf="email?.errors?.required && (email?.dirty || email?.touched)"
+        >Required</span
+      >
+      <span
+        class="invalid-feedback"
+        *ngIf="email?.hasError('email') && !email?.hasError('required')"
+        >Please provide a valid email address</span
+      >
+    </div>
+    <div class="form_group position-relative">
+      <label for="password" class="form-label">password </label>
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        id="password"
+        class="form-control"
+        placeholder="Enter Password"
+        formControlName="password"
+        (keyup)="checkForKeyEnter($event)"
+        autocomplete="current-password"
+        [ngClass]="{
+          'is-invalid':
+            password!.errors && (password!.dirty || password!.touched)
+        }"
+      />
+
+      <img
+        (click)="showPassword = !showPassword"
+        src="assets/icons/eye-icon-{{ showPassword ? 'open' : 'close' }}.svg"
+        alt="eye close icon"
+        class="svg_eye"
+      />
+
+      <span class="invalid-feedback" *ngIf="password!.hasError('required')">
+        Password is required
+      </span>
+      <small
+        class="invalid-feedback mt-2"
+        *ngIf="password!.dirty && password!.invalid"
+      >
+        *Your password must have at least
+        <span
+          *ngIf="
+            password!.hasError('minlength') || password!.hasError('required')
+          "
+          >8 characters,
+        </span>
+        <span
+          *ngIf="
+            password!.hasError('hasNumber') || password!.hasError('required')
+          "
+          >1 number,</span
+        >
+        <span
+          *ngIf="
+            password!.hasError('hasCapitalCase') ||
+            password!.hasError('required')
+          "
+        >
+          1 capital letter,
+        </span>
+        <span
+          *ngIf="
+            password!.hasError('hasSmallCase') || password!.hasError('required')
+          "
+        >
+          1 small letter,
+        </span>
+        <span
+          *ngIf="
+            password!.hasError('hasSpecialCharacters') ||
+            password!.hasError('required')
+          "
+        >
+          and 1 special character.
+        </span>
+      </small>
+
+      <a class="forgot" [routerLink]="['/forgot']" routerLinkActive="active">
+        Forgot Password?
+      </a>
+    </div>
+    <div class="form_group">
+      <button
+        class="btn_primary btn_md btn_full"
+        [title]="loginForm.invalid ? 'pls input correct email' : 'Sign In'"
+        (click)="login()"
+        [disabled]="isLoading"
+      >
+        <span *ngIf="!isLoading"> Sign In </span>
+        <span *ngIf="isLoading">
+          <app-global-loader
+            [diameter]="20"
+            [inline]="true"
+          ></app-global-loader>
+        </span>
+      </button>
+    </div>
+    <!-- <app-socials></app-socials> -->
+    <p
+      class="wrapper-already"
+      [routerLink]="['/register']"
+      routerLinkActive="active"
+    >
+      Don't have an accont? <span>Sign Up</span>
+    </p>
+  </form>
+</div>

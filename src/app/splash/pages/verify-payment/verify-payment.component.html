@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <p class="text-danger" *ngIf="error_message">
+    <em>{{ error_message }}</em>
+  </p>
+  <div class="d-flex align-items-center" *ngIf="isLoading">
+    <h3 class="wrapper-heading">Verifying Payment</h3>
+    <span>
+      <app-global-loader [diameter]="20" [inline]="true"></app-global-loader>
+    </span>
+  </div>
+  <p class="wrapper-already" *ngIf="error_message">
+    Back to
+    <span [routerLink]="['/pay']" routerLinkActive="active">Payment</span>
+  </p>
+</div>

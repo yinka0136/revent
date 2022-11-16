@@ -1,0 +1,53 @@
+@import "partials/abstract/variables";
+@import "partials/abstract/mixins.scss";
+
+.header {
+  background-color: $dark;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  min-height: 15.6rem;
+
+  &__img {
+    margin-right: 1.2rem;
+  }
+
+  &__heading {
+    font-family: $nunito_font_bold;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 2.4rem;
+    color: $light-100;
+  }
+
+  &__paragraph {
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 150%;
+    color: rgba($color: $light-100, $alpha: 0.7);
+  }
+
+  &_left {
+    padding: 2.8rem 4.8rem;
+    &-back {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      p {
+        font-weight: 400;
+        font-size: 1.2rem;
+        line-height: 150%;
+        color: $light-100;
+      }
+    }
+  }
+  &_right {
+    position: relative;
+    svg {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
