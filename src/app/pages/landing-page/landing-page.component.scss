@@ -194,9 +194,9 @@ section {
     & .flex-container {
       flex-direction: column;
       flex: 1;
-      & :not(:last-child) {
-        margin-bottom: 2rem;
-      }
+      // & :not(:last-child) {
+      //   margin-bottom: 2rem;
+      // }
     }
   }
 }
@@ -262,41 +262,6 @@ section {
   @include respond(phone) {
     margin-bottom: 5rem;
   }
-  &__heading {
-    margin-bottom: 1.6rem;
-    font-family: $montserrat_font_extra_bold;
-
-    @include respond(phone) {
-      margin-bottom: 1.2rem;
-    }
-  }
-  &__paragraph {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.8rem;
-    line-height: 150%;
-    color: $white;
-    margin-bottom: 4rem;
-    @include respond(phone) {
-      margin-bottom: 1.2rem;
-    }
-  }
-  &_type {
-    display: flex;
-    margin-bottom: 3.2rem;
-    @include respond(phone) {
-      margin-bottom: 1rem;
-    }
-    img {
-      margin-right: 1.8rem;
-    }
-    &__heading {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 150%;
-      color: $white;
-    }
-  }
 
   @include respond(phone) {
     padding: 2rem 0;
@@ -306,6 +271,11 @@ section {
       & > :not(:last-child) {
         margin-bottom: 0.8rem;
       }
+    }
+  }
+  @include respond(tab-port) {
+    img {
+      margin-bottom: 1rem;
     }
   }
 }
