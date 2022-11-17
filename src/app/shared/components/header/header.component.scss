@@ -21,7 +21,7 @@ $hamburger-padding-y: 0;
   transition: 0.3s all ease-in-out;
 
   @include respond(phone) {
-    padding: 2rem;
+    padding: 2rem 0;
     box-shadow: none;
   }
 }
