@@ -1,0 +1,311 @@
+@import "partials/abstract/mixins";
+@import "partials/abstract/variables";
+
+$nav_height: 7.2rem;
+main {
+  overflow: hidden;
+  padding: 0;
+  padding-top: 24.4rem;
+  @include respond(phone) {
+    padding-top: 0rem;
+  }
+}
+
+section {
+  height: 100%;
+  @include respond(tab-port) {
+    padding: 0 3rem;
+  }
+}
+
+@include respond(phone) {
+  .sm-hide {
+    display: none;
+  }
+}
+
+.__header {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  font-family: $montserrat_font_bold;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3.7rem;
+  color: $white;
+  margin-bottom: 5.9rem;
+  img {
+    position: absolute;
+    bottom: -20%;
+    left: 51%;
+    transform: translateX(-50%);
+    z-index: -1;
+    @include respond(tab-mid) {
+      transform: translate(-50%, 30%) scale(0.8);
+    }
+    @include respond(tab-sm) {
+      transform: translate(-50%, 30%) scale(0.8);
+    }
+    @include respond(tab-sm) {
+      transform: translate(-50%, 30%) scale(0.7);
+    }
+  }
+}
+
+.about {
+  & > :not(:last-child) {
+    margin-bottom: 10rem;
+    @include respond(phone) {
+      margin-bottom: 5rem;
+    }
+  }
+  margin-bottom: 10rem;
+  @include respond(phone) {
+    margin-bottom: 5rem;
+  }
+  .__header {
+    margin-bottom: 5.9rem;
+  }
+
+  .vector {
+    position: absolute;
+    z-index: -1;
+    top: 30px;
+    left: 5px;
+  }
+  &__main_heading {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 4.4rem;
+    color: $white;
+    margin-bottom: 2.5rem;
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__heading {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 2.4rem;
+    color: $white;
+    margin-bottom: 2.5rem;
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__paragraph {
+    margin-bottom: 3.6rem;
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__img {
+    @include respond(phone) {
+      margin-top: 1.4rem;
+    }
+  }
+
+  &_links {
+    margin-top: 2.8rem;
+    display: flex;
+    & > :not(:last-child) {
+      margin-right: 2rem;
+    }
+    &-link {
+      height: 5rem;
+      width: 5rem;
+      background: $yellow;
+      border-radius: 50%;
+      padding: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  @include respond(tab-port) {
+    padding: 2rem 0;
+    img {
+      width: 100%;
+    }
+    & .flex-container {
+      flex-direction: column;
+      & :not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+.resume {
+  margin-bottom: 10rem;
+  @include respond(phone) {
+    margin-bottom: 5rem;
+  }
+  .__header {
+    margin-bottom: 4.5rem;
+  }
+  &__heading {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 3.7rem;
+    color: $white;
+    margin-bottom: 2.4rem;
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__type {
+    font-family: $montserrat_font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 3.7rem;
+    color: $white;
+    margin-bottom: 1.2rem;
+  }
+  &__paragraph {
+    font-family: $montserrat_font;
+    color: $white;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 2.4rem;
+
+    @include respond(phone) {
+      margin-bottom: 2.4rem;
+    }
+  }
+
+  &_wrapper {
+    border-left: 0.5rem solid $yellow;
+    padding-left: 3.35rem;
+    &-item {
+      margin-bottom: 4.5rem;
+    }
+  }
+
+  @include respond(phone) {
+    padding: 2rem 0;
+
+    & .flex-container {
+      flex-direction: column;
+      flex: 1;
+      & :not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+
+.portfolio {
+  margin-bottom: 10rem;
+  @include respond(phone) {
+    margin-bottom: 5rem;
+  }
+  .__header {
+    margin-bottom: 2.1rem;
+  }
+  height: 100%;
+
+  &_tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    @include respond(phone) {
+      justify-content: flex-start;
+    }
+    .nav-link {
+      padding: 1.3rem 3rem;
+      font-family: $montserrat_font;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 2rem;
+      line-height: 2.4rem;
+      color: $white;
+      @include respond(phone) {
+        padding: 0.4rem 1.2rem;
+      }
+    }
+    .nav-pills .nav-link.active,
+    .nav-pills .show > .nav-link {
+      padding: 1.3rem 3rem;
+      background: $white;
+      border-radius: 1rem;
+      color: $black;
+      @include respond(phone) {
+        padding: 0.4rem 1.2rem;
+      }
+    }
+  }
+
+  @include respond(phone) {
+    padding: 2rem 0;
+    margin: 2rem 0;
+    img {
+      width: 100%;
+    }
+
+    .row {
+      & :not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+.touch {
+  height: 100%;
+  margin-bottom: 13.6rem;
+  @include respond(phone) {
+    margin-bottom: 5rem;
+  }
+  &__heading {
+    margin-bottom: 1.6rem;
+    font-family: $montserrat_font_extra_bold;
+
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &__paragraph {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 150%;
+    color: $white;
+    margin-bottom: 4rem;
+    @include respond(phone) {
+      margin-bottom: 1.2rem;
+    }
+  }
+  &_type {
+    display: flex;
+    margin-bottom: 3.2rem;
+    @include respond(phone) {
+      margin-bottom: 1rem;
+    }
+    img {
+      margin-right: 1.8rem;
+    }
+    &__heading {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: $white;
+    }
+  }
+
+  @include respond(phone) {
+    padding: 2rem 0;
+    margin: 2rem 0;
+    & .flex-container {
+      flex-direction: column;
+      & > :not(:last-child) {
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+}

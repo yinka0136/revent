@@ -39,24 +39,14 @@ body {
       }
     }
   }
-  &__row--65 {
-    flex-basis: 65%;
+  &__row--75 {
+    flex-basis: 75%;
   }
-  &__row--35 {
-    flex-basis: 35%;
-  }
-  &__row--60 {
-    flex-basis: 60%;
-  }
-  &__row--30 {
-    flex-basis: 40%;
+  &__row--25 {
+    flex-basis: 25%;
   }
 }
 
-.form_line {
-  width: -webkit-fill-available;
-  border: 0.1rem solid rgba($dark, 0.1);
-}
 .pointer {
   cursor: pointer;
   transition: 0.3s all ease-in-out;
@@ -68,123 +58,10 @@ body {
 .position-relative {
   position: relative;
 }
-.svg_eye {
-  cursor: pointer;
-  position: absolute;
-  right: 5%;
-  top: 50%;
-}
 
-.dropdown_item {
-  display: flex;
-  padding: 0.8rem;
-  border-bottom: 0.1rem solid rgba($body, 0.1);
-  &:last-child {
-    border-bottom: none;
-  }
-  cursor: pointer;
-  &:hover {
-    background: $light-200;
-  }
-  h4 {
-    font-family: $nunito_font_bold;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.4rem;
-    line-height: 150%;
-    color: $body;
-  }
-  svg {
-    margin-right: 0.8rem !important;
+.container {
+  @include respond(tab-port) {
+    padding: 0 2rem;
   }
 
-  &.plain {
-    border-bottom: none !important;
-  }
-}
-
-// table {
-//   font-family: arial, sans-serif;
-//   border-collapse: collapse;
-//   width: 100%;
-// }
-
-// td,
-// th {
-//   border: 1px solid #dddddd;
-//   text-align: left;
-//   padding: 8px;
-// }
-
-// tr:nth-child(even) {
-//   background-color: #dddddd;
-// }
-
-table.table {
-  caption {
-    font-family: $nunito_font_bold !important;
-    color: $accent;
-    font-size: 1.8rem;
-    font-weight: bold !important;
-    margin-bottom: 1rem;
-  }
-  tbody {
-    border-top: none !important;
-    tr {
-      td {
-        color: $body;
-        font-size: 1.4rem;
-        padding: 1.6rem;
-        border: transparent;
-        vertical-align: middle;
-        ._icon {
-          &:first-child {
-            margin-right: 1.5rem;
-          }
-        }
-
-        .dot {
-          width: 0.8rem;
-          height: 0.8rem;
-          border-radius: 50%;
-          display: block;
-          &-success {
-            background-color: $success;
-          }
-          &-error {
-            background-color: $error;
-          }
-          &-info {
-            background-color: $info;
-          }
-          &-warning {
-            background-color: $warning;
-          }
-        }
-
-        .avatar {
-          display: flex;
-          align-items: center;
-          & > :first-child {
-            margin-right: 1.2rem;
-          }
-        }
-      }
-    }
-    tr:nth-child(even) {
-      background: rgba(15, 23, 51, 0.07);
-    }
-  }
-  thead {
-    border-top: solid 0.1rem rgba($color: $dark, $alpha: 0.1) !important;
-    border-bottom: solid 0.1rem rgba($color: $dark, $alpha: 0.1) !important;
-    th {
-      font-family: $nunito_font_bold;
-      border-bottom: 0;
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: $body;
-      padding: 1.4rem;
-    }
-  }
 }

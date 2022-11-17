@@ -5,33 +5,3 @@
 @import "partials/base/buttons";
 @import "partials/components/forms";
 @import "partials/components/scrollbar";
-
-.mat-menu-panel {
-  padding: 1.2rem 1.6rem;
-  background: $light-100;
-  min-width: 26rem !important;
-  box-shadow: 0px 16px 32px rgba(37, 99, 235, 0.15);
-  border-radius: 0.8rem !important;
-  min-height: 6.4rem;
-}
-.cdk-global-overlay-wrapper {
-  background: rgba($dark, 0.5);
-}
-
-.cdk-overlay-pane {
-  max-width: 91vw !important;
-  .mat-dialog-container {
-    // width: 85rem !important;
-  }
-}
-
-.mat-dialog-title {
-  font-weight: 700 !important;
-  font-size: 1.6rem !important;
-  line-height: 2.4rem !important;
-  color: $body !important;
-  font-family: $nunito_font_bold !important;
-}
-.modal-width .mat-dialog-container {
-  max-width: 52rem !important;
-}

@@ -1,11 +1,11 @@
 // SCROLLBAR REDESIGN
 html {
-  --scrollbarBG: #eeeeee;
-  --thumbBG: #5c718a;
+  --scrollbarBG: $black;
+  --thumbBG: #fce82f;
 }
 body::-webkit-scrollbar,
 body *::-webkit-scrollbar {
-  width: 11px;
+  width: 0.5rem;
   @include respond(tab-port) {
     display: none;
     -ms-overflow-style: none;
@@ -13,7 +13,7 @@ body *::-webkit-scrollbar {
 }
 body,
 body * {
-  scrollbar-width: 5px;
+  scrollbar-width: 0.5rem;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }
 body::-webkit-scrollbar-track,
@@ -23,6 +23,6 @@ body *::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb,
 body *::-webkit-scrollbar-thumb {
   background-color: var(--thumbBG);
-  border-radius: 10px;
+  border-radius: 0.8rem;
   border: 3px solid var(--scrollbarBG);
 }

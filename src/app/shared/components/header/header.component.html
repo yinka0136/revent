@@ -1,0 +1,117 @@
+<header class="header" #header [ngClass]="{ scrolled: scrolled }">
+  <nav class="nav container">
+    <div class="nav__col">
+      <!-- MOBILE HEADER -->
+      <div class="mobile-header">
+        <span
+          class="hamburger hamburger--slider-r"
+          role="button"
+          (click)="toggleSideNav()"
+          [ngClass]="showSideNav ? 'is-active' : ''"
+          tabindex="0"
+          aria-label="Menu"
+          aria-controls="navigation"
+        >
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </span>
+      </div>
+
+      <img
+        src="assets/icons/logo.svg"
+        alt="logo"
+        class="nav__logo"
+        [routerLink]="['/']"
+      />
+
+      <ul class="nav__list non-mobile-header">
+        <li
+          class="nav__list-item"
+          [class.active]="activeFragment == fragments.ABOUT"
+        >
+          <a [routerLink]="'.'" [fragment]="fragments.ABOUT">{{
+            fragments.ABOUT
+          }}</a>
+        </li>
+
+        <li
+          class="nav__list-item"
+          [class.active]="activeFragment == fragments.PORTFOLIO"
+        >
+          <a [routerLink]="'.'" [fragment]="fragments.PORTFOLIO">{{
+            fragments.PORTFOLIO
+          }}</a>
+        </li>
+
+        <li
+          class="nav__list-item"
+          [class.active]="activeFragment == fragments.EXPERIENCE"
+        >
+          <a [routerLink]="'.'" [fragment]="fragments.EXPERIENCE"
+            >{{ fragments.EXPERIENCE }}
+          </a>
+        </li>
+
+        <li
+          class="nav__list-item"
+          [class.active]="activeFragment == fragments.CONTACT"
+        >
+          <a [routerLink]="'.'" [fragment]="fragments.CONTACT">{{
+            fragments.CONTACT
+          }}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <aside [class.show]="showSideNav">
+    <ul class="nav__list">
+      <li
+        class="nav__list-item"
+        [class.active]="activeFragment == fragments.ABOUT"
+      >
+        <a
+          [routerLink]="'.'"
+          [fragment]="fragments.ABOUT"
+          (click)="toggleSideNav()"
+          >{{ fragments.ABOUT }}</a
+        >
+      </li>
+
+      <li
+        class="nav__list-item"
+        [class.active]="activeFragment == fragments.PORTFOLIO"
+      >
+        <a
+          [routerLink]="'.'"
+          [fragment]="fragments.PORTFOLIO"
+          (click)="toggleSideNav()"
+          >{{ fragments.PORTFOLIO }}</a
+        >
+      </li>
+      <li
+        class="nav__list-item"
+        [class.active]="activeFragment == fragments.EXPERIENCE"
+      >
+        <a
+          [routerLink]="'.'"
+          [fragment]="fragments.EXPERIENCE"
+          (click)="toggleSideNav()"
+          >{{ fragments.EXPERIENCE }}</a
+        >
+      </li>
+      <li
+        class="nav__list-item"
+        [class.active]="activeFragment == fragments.CONTACT"
+      >
+        <a
+          [routerLink]="'.'"
+          [fragment]="fragments.CONTACT"
+          (click)="toggleSideNav()"
+          >{{ fragments.CONTACT }}</a
+        >
+      </li>
+    </ul>
+  </aside>
+</header>

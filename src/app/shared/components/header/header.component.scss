@@ -1,0 +1,199 @@
+@import "partials/abstract/mixins";
+@import "partials/abstract/variables";
+
+$hamburger-layer-color: #8995ab;
+$hamburger-layer-width: 24px;
+$hamburger-layer-height: 4px;
+$hamburger-layer-spacing: 4px;
+$hamburger-padding-x: 0;
+$hamburger-padding-y: 0;
+
+@import "~hamburgers/_sass/hamburgers/hamburgers.scss";
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid rgba(15, 23, 51, 0.1);
+  z-index: 10;
+  padding: 5.1rem 0 0 0;
+  background: $black;
+  transition: 0.3s all ease-in-out;
+
+  @include respond(phone) {
+    padding: 2rem;
+    box-shadow: none;
+  }
+}
+
+aside {
+  display: none;
+  @include respond(tab-sm) {
+    display: block;
+    position: absolute;
+    top: 6rem;
+    background: $black;
+    width: 100%;
+    left: 0;
+    height: calc(100vh - 6rem);
+    transform: translateX(-100%);
+    transition: all 0.3s ease-in-out;
+
+    &.show {
+      transform: translateX(0);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  & ul {
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0.8rem 0 0 0;
+
+    & li {
+      width: 100%;
+
+      & a {
+        font-family: $montserrat_font_bold;
+        display: block;
+        color: $white;
+        transition: all 0.2s ease-in;
+        font-weight: 700;
+        font-size: 1.4rem;
+        padding: 0.8rem 2.377rem;
+        text-decoration: none;
+        &:hover {
+          color: $black;
+          text-decoration: none;
+          font-style: italic;
+        }
+        &.active {
+          font-style: italic;
+          color: $black;
+          border-color: $yellow;
+        }
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  & ul.second {
+    padding-top: 0;
+  }
+}
+
+.mobile-header {
+  display: none;
+  @include respond(tab-sm) {
+    display: block;
+    & .hamburger {
+      margin-top: 0.8rem;
+      margin-right: 2.5rem;
+    }
+  }
+}
+
+.mobile {
+  display: none;
+  @include respond(phone) {
+    display: block;
+  }
+}
+
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include respond(tab-sm) {
+    &__logo {
+      height: 2.4rem;
+    }
+  }
+
+  .nav__col {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    & > * {
+      margin-bottom: unset;
+    }
+    & > :not(:last-child) {
+      margin-right: 4rem;
+      @include respond(tab-sm) {
+        margin-right: unset;
+      }
+    }
+
+    &.non-mobile-header {
+      @include respond(tab-sm) {
+        display: none;
+      }
+    }
+  }
+
+  .nav__list {
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+
+    & > :not(:last-child) {
+      margin-right: 4rem;
+    }
+
+    @include respond(tab-sm) {
+      & > :not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+    &.non-mobile-header {
+      @include respond(tab-sm) {
+        display: none;
+      }
+    }
+  }
+
+  .nav__list-item {
+    // height: 100%;
+    display: block;
+    &.active {
+      a {
+        color: $yellow;
+      }
+    }
+
+    & a {
+      font-family: $montserrat_font;
+      display: flex;
+      height: 100%;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 150%;
+      padding-bottom: 0.5rem;
+      color: $white;
+      transition: all 0.2s ease-in;
+      border-bottom: 0.3rem solid transparent;
+      text-decoration: none;
+      &:hover {
+        color: $yellow;
+        text-decoration: none;
+      }
+      &.active {
+        color: $yellow;
+      }
+    }
+
+    cursor: pointer;
+  }
+}

@@ -1,20 +1,29 @@
 import { Component, NgZone } from '@angular/core';
-import { RouterEvent, RouteConfigLoadStart, RouteConfigLoadEnd, NavigationCancel, NavigationError } from '@angular/router';
+import {
+  RouterEvent,
+  RouteConfigLoadStart,
+  RouteConfigLoadEnd,
+  NavigationCancel,
+  NavigationError,
+  Router,
+} from '@angular/router';
 import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  
-  title = 'klinicly';
+  title = 'Revent';
   public showpageLoader$: Observable<boolean> = of(false);
 
-  constructor(    private ngZone: NgZone,){}
+  constructor(private ngZone: NgZone, private router: Router) {
+    this.router.events.subscribe((event: any) => {
+      this.navigationInterceptor(event);
+    });
+  }
 
-  
   private navigationInterceptor(event: RouterEvent): void {
     if (event instanceof RouteConfigLoadStart) {
       // We wanna run this function outside of Angular's zone to
@@ -43,6 +52,4 @@ export class AppComponent {
       this.showpageLoader$ = of(false);
     });
   }
-
-
 }

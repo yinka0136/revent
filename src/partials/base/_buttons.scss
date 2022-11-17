@@ -1,236 +1,33 @@
 // Button Primary
 .btn_primary {
-  font-family: $nunito_font_bold;
-  background: $accent;
-  box-shadow: 0 0.4rem 0.8rem -0.1rem rgba(35, 65, 179, 0.25);
-  border-radius: 0.8rem;
+  font-family: $montserrat_font_bold;
+  background: $yellow;
+  border-radius: 1rem;
+  font-style: normal;
   font-weight: 700;
-  line-height: 150%;
-  color: $light-100;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: $black;
   transition: 0.3s all ease-in-out;
   border: none !important;
   white-space: nowrap;
   &:hover,
   &:focus {
     border-radius: 4rem;
-    background: linear-gradient(180deg, $gradient1 0%, $gradient2 100%);
+    background: rgba($color: $yellow, $alpha: 0.8);
   }
-  &:disabled {
-    background: rgba($header, 0.15);
-    cursor: not-allowed;
-  }
+
   @include respond(phone) {
     padding: 1.2rem !important;
     font-size: 1.4rem !important;
   }
 }
 
-// Button Outlined
-.btn_outlined {
-  white-space: nowrap;
-
-  font-family: $nunito_font_bold;
-  background: transparent;
-  border: 0.1rem solid $accent;
-  box-shadow: 0 0.2rem 0.8rem -0.1rem rgba(255, 136, 0, 0.15);
-  border-radius: 0.8rem;
-  font-weight: 700;
-  line-height: 150%;
-  color: $accent;
-  transition: 0.3s all ease-in-out;
-  &:hover,
-  &:focus {
-    border: 0.1rem solid $accent;
-    color: $accent;
-    border-radius: 4rem;
-  }
-  &:disabled {
-    border: 0.1rem solid #bababd;
-    cursor: not-allowed;
-  }
-  @include respond(phone) {
-    padding: 1.2rem !important;
-    font-size: 1.4rem !important;
-  }
-}
-
-// Button Subtle
-.btn_subtle {
-  white-space: nowrap;
-
-  font-family: $nunito_font_bold;
-  background: transparent;
-  border: 0.1 solid rgba($dark, 0.2);
-  border-radius: 0.8rem;
-  font-weight: 700;
-  line-height: 150%;
-  color: $body;
-  &:hover,
-  &:focus {
-    border: 0.1rem solid rgba($dark, 0.5);
-    color: $header;
-  }
-  &:disabled {
-    border: 0.1rem solid #bababd;
-    color: #bababd;
-    cursor: not-allowed;
-  }
-  @include respond(phone) {
-    padding: 1.2rem !important;
-    font-size: 1.4rem !important;
-  }
-}
-
-// Button Text
-.btn_text {
-  white-space: nowrap;
-
-  font-family: $nunito_font_bold;
-  background: transparent;
-  border: none;
-  // border: 0.1 solid rgba($dark, 0.2);
-  border-radius: 0.8rem;
-  font-weight: 700;
-  line-height: 150%;
-  color: $body;
-  &:hover,
-  &:focus {
-    border: none;
-    // border: 0.1rem solid rgba($dark, 0.5);
-    color: $header;
-  }
-  &:disabled {
-    border: none;
-    // border: 0.1rem solid #bababd;
-    color: #bababd;
-    cursor: not-allowed;
-  }
-  @include respond(phone) {
-    padding: 1.2rem !important;
-    font-size: 1.4rem !important;
-  }
-}
-.btn_md {
-  padding: 1.2rem 2.4rem;
-  font-size: 1.6rem;
+.btn_lg {
+  padding: 2rem 5.6rem;
+  font-size: 2rem;
   @include respond(phone) {
     font-size: 1.4rem !important;
-  }
-}
-
-.btn_sm {
-  padding: 1.2rem;
-  font-size: 1.4rem;
-  @include respond(phone) {
-    font-size: 1.2rem !important;
-  }
-}
-
-.btn_white {
-  color: $light-100;
-  border: 1px solid $light-100;
-}
-
-.btn_full {
-  width: 100%;
-}
-.accordion-button {
-  padding: 1.6rem 0 !important;
-  border-bottom: 0.1rem solid rgba($dark, 0.2) !important;
-  font-family: $nunito_font_bold !important;
-  font-weight: 700 !important;
-  font-size: 1.8rem !important;
-  line-height: 150% !important;
-  color: $dark !important;
-  background-color: inherit !important;
-  border: 0 !important;
-  overflow-anchor: none !important;
-  transition: 0.8s all ease-in-out;
-
-  &:focus {
-    box-shadow: none !important;
-  }
-  &:not(.collapsed)::after {
-    background-image: url(../../assets/landing/svg/close.svg);
-    transform: rotate(0deg) !important;
-  }
-  &::after {
-    width: 3.2rem;
-    height: 3.2rem;
-    margin-left: auto;
-    content: "";
-    background-image: url(../../assets/landing/svg/add.svg);
-    background-repeat: no-repeat;
-    background-size: 3.2rem;
-    transition: 0.3s all ease-in-out;
-  }
-}
-.accordion-item {
-  // background-color: var(--bs-accordion-bg);
-  border: none;
-}
-.accordion-body {
-  font-style: normal !important;
-  font-weight: 400 !important;
-  font-size: 16px !important;
-  line-height: 150% !important;
-  color: $dark !important;
-}
-
-.badge {
-  height: 2.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 7.5rem;
-  border-radius: 0.5rem;
-  &-error {
-    background: rgba($error, 0.1);
-    color: $error;
-    border: 0.1rem solid $error;
-  }
-  &-success {
-    background: rgba($success, 0.1);
-    color: $success;
-    border: 0.1rem solid $success;
-  }
-  &-warning {
-    background: rgba($warning, 0.1);
-    color: $warning;
-    border: 0.1rem solid $warning;
-  }
-  &-tip {
-    background: rgba($tip, 0.1);
-    color: $tip;
-    border: 0.1rem solid $tip;
-  }
-}
-
-.badge {
-  height: 2.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 7.5rem;
-  border-radius: 0.5rem;
-  &-error {
-    background: rgba($error, 0.1);
-    color: $error;
-    border: 0.1rem solid $error;
-  }
-  &-success {
-    background: rgba($success, 0.1);
-    color: $success;
-    border: 0.1rem solid $success;
-  }
-  &-warning {
-    background: rgba($warning, 0.1);
-    color: $warning;
-    border: 0.1rem solid $warning;
-  }
-  &-tip {
-    background: rgba($tip, 0.1);
-    color: $tip;
-    border: 0.1rem solid $tip;
+    padding: 1.2rem 2.4rem;
   }
 }

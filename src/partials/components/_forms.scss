@@ -1,210 +1,46 @@
 .form_group {
-  font-family: $lato;
-  margin-bottom: 1.6rem;
+  font-family: $montserrat_font;
+  margin-bottom: 2.9rem;
   @include respond(phone) {
     margin-bottom: 1.2rem;
   }
-  label {
-    margin-bottom: 0.2rem;
-    font-weight: 500;
-    font-size: 1.2rem;
-    line-height: 2rem;
-    color: $body;
-  }
-
-  .input-group {
-    span {
-      display: flex;
-      background: #dee2f1;
-      border: none;
-      border-radius: 0 .8rem .8rem 0;
-      padding:1.2rem  1.4rem;
-      font-weight: 400;
-font-size: 1.2rem;
-line-height: 150%;
-color: $body;
-
-    }
-  }
 
   input,
-  select,
   textarea {
     width: 100%;
-    border-radius: 0.8rem;
+    background: $white;
+box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+border-radius: 1rem;
     border: none;
-    height: 4.8rem;
+    height: 4.2rem;
     font-size: 1.4rem !important;
     padding: 1.2rem 1.6rem;
-    background: $light-200 !important;
     @include respond(phone) {
       height: 3.8rem;
       padding: 1.2rem;
     }
     &::placeholder {
-      color: rgba($body, 0.6);
+      color: rgba($black, 0.6);
     }
 
     &:focus {
-      background-color: $light-100;
-      color: $accent;
-      border: 0.1rem solid rgba($accent, 0.4);
+      background-color: $white;
+      color: $black;
+      border: 0.1rem solid rgba($black, 0.4);
       box-shadow: none !important;
     }
     &:active,
     &:focus {
       box-shadow: none !important;
-      background: $light-100;
-      border: 0.1rem solid $accent;
+      background: $white;
+      border: 0.1rem solid $yellow;
     }
-    &:disabled {
-      background: rgba($light-200, 0.8);
-      &::-webkit-input-placeholder,
-      &::-moz-placeholder,
-      &:-ms-input-placeholder,
-      &::placeholder {
-        color: rgba($body, 0.6);
-      }
-    }
-    &.is-invalid {
-      border: 0.1rem solid $error !important;
-      background-color: $light-100;
-    }
-    &.success {
-      border: 0.1rem solid $success !important;
-      background-color: $light-100;
-    }
-    &.warning {
-      border: 0.1rem solid $warning !important;
-      background-color: $light-100;
-    }
+ 
+   
+   
   }
 
   textarea {
     height: 100% !important;
   }
-
-  .ng-select {
-    width: 100%;
-    input {
-      height: 3rem;
-    }
-  }
-
-  .ng-select.ng-select-single .ng-select-container {
-    border: none;
-    margin-top: 0.4rem;
-    box-sizing: border-box;
-    outline: none;
-    width: 100%;
-    height: 4.8rem;
-    border-radius: 0.8rem;
-    font-size: 1.4rem;
-    color: $aqua;
-    padding: 1.35rem 1.6rem;
-    background: rgba($aqua, 0.07);
-    display: flex;
-    align-items: center;
-  }
-  .ng-select.ng-select-focused.ng-select-opened > .ng-select-container {
-    background: $light-100 !important;
-    color: $aqua;
-    border: 0.1rem solid rgba($aqua, 0.4);
-    box-shadow: none;
-  }
-  .ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
-    border-color: rgba($aqua, 0.4);
-    box-shadow: none;
-  }
-  /* Border Color */
-  .ng-select.ng-invalid.ng-touched .ng-select-container {
-    border: 0.1rem solid $error !important;
-    background: $light-100;
-  }
-
-  /* Arrow Color */
-  .ng-select.ng-invalid.ng-touched .ng-arrow-wrapper .ng-arrow {
-    border-color: $error transparent transparent;
-  }
-  /* Placeholder Color */
-  .ng-select.ng-invalid.ng-touched .ng-select-container {
-    color: $error;
-  }
-}
-
-.custom-control-label {
-  &::after,
-  &::before {
-    width: 2rem;
-    height: 2rem;
-  }
-}
-.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: $aqua !important;
-}
-
-.custom-control-input:checked ~ .custom-control-label::before {
-  color: $light-100 !important;
-  background-color: $aqua !important;
-}
-.custom-border-input {
-  border: 0.1rem solid rgba(76, 17, 171, 0.2);
-  border-radius: 0.8rem;
-  padding: 1.2rem;
-  label {
-    font-weight: 400;
-    font-size: 1.4rem;
-    line-height: 2.1rem;
-    color: rgba($body, 0.7);
-    margin-left: 0.8rem;
-  }
-}
-
-.line_item {
-  position: relative;
-  border-left: 0.1rem solid rgba($aqua, 0.2);
-  padding-left: 1.2rem;
-  .dot {
-    background: $light-100;
-    position: absolute;
-    height: 1.2rem;
-    border: 0.2rem solid $aqua;
-    outline: 0.5rem solid $light-100;
-    border-radius: 0.5rem;
-    top: 0.4rem;
-    left: -0.7rem;
-  }
-  .header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.6rem;
-    h2 {
-      font-family: $nunito_font_bold;
-      font-size: 1.4rem;
-      line-height: 2.1rem;
-      color: $body;
-      margin-right: 0.8rem;
-      white-space: nowrap;
-    }
-  }
-  .content {
-    padding-left: 1.2rem;
-    p {
-      margin-bottom: 2.4rem;
-    }
-
-    .custom_btn2 {
-      margin: 0 0.8rem;
-    }
-    .btn_margin {
-      margin-bottom: 4rem;
-    }
-  }
-}
-
-.dialog-header {
-  display: flex !important;
-  justify-content: space-between !important;
-  padding-bottom: 1.4rem;
-  border-bottom: 0.1rem solid rgba($aqua, 0.1);
 }

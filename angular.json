@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "klinicly": {
+    "revent": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/klinicly",
+            "outputPath": "dist/revent",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -32,9 +32,6 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              {
-                "input": "src/mat-theme.scss"
-              },
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/animate.css",
               "src/styles.scss"
@@ -86,10 +83,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "klinicly:build:production"
+              "browserTarget": "revent:build:production"
             },
             "development": {
-              "browserTarget": "klinicly:build:development"
+              "browserTarget": "revent:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -97,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "klinicly:build"
+            "browserTarget": "revent:build"
           }
         },
         "test": {

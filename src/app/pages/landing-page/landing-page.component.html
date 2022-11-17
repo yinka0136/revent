@@ -1,0 +1,209 @@
+<main class="main">
+  <section class="section about" id="About Us">
+    <div class="container">
+      <div class="flex-container align-items-start">
+        <div class="flex-container__full-row" #headerText>
+          <h1 class="about__main_heading">
+            Innovative Solution <br />
+            Taliored to your <br />
+            Business need
+          </h1>
+          <p class="about__paragraph">
+            We can partner with your business to provide a symbiotic
+            relationship and synergy to help you or your business achieve more
+            business growth through strategic financial advisory, investment
+            business and human resource planning and management.​
+          </p>
+          <button class="btn_primary btn_lg" routerLinkActive="active">
+            Get in touch
+          </button>
+
+          <div class="about_links">
+            <div class="about_links-link pointer">
+              <img src="assets/icons/behance.svg" alt="behance" />
+            </div>
+            <div class="about_links-link pointer">
+              <img src="assets/icons/ball.svg" alt="ball" />
+            </div>
+            <div class="about_links-link pointer">
+              <img src="assets/icons/facebook.svg" alt="facebook" />
+            </div>
+          </div>
+        </div>
+        <div class="flex-container__full-row position-relative" #heroImg>
+          <img src="assets/img/polygon.png" alt="polygon" class="polygon" />
+          <img src="assets/icons/vector.svg" alt="vector" class="vector" />
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="__header">
+        About Us <img src="assets/icons/underline.svg" alt="underline" />
+      </div>
+
+      <div class="flex-container align-items-end" #section2>
+        <div class="flex-container__full-row">
+          <img src="assets/img/about.png" alt="img" class="about__img" />
+        </div>
+        <div class="flex-container__full-row">
+          <h4 class="about__heading">We focus on value and excellence</h4>
+          <p class="about__paragraph">
+            We are focused on providing products which deliver demonstrably good
+            value for our clients and <br />
+            end-customers – be that a specific return,<br />
+            outperforming an index or achieving returns at lower <br />
+            risk.​ <br />
+            <br />
+            Through achieving value for the clients whose assets we manage,
+            efficiently controlling costs, effectiveness and efficiency, we
+            deliver value to our shareholders and <br />
+            wider stakeholders​
+          </p>
+          <button class="btn_primary btn_lg" routerLinkActive="active">
+            Work with Us
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section resume" id="Experience">
+    <div class="container">
+      <div class="__header">
+        Resume <img src="assets/icons/underline.svg" alt="underline" />
+      </div>
+
+      <div class="flex-container" #section2>
+        <div class="flex-container__row--75">
+          <div class="resume_wrapper">
+            <div class="resume_wrapper-item">
+              <h2 class="resume__heading">2017</h2>
+              <h3 class="resume__type">Louisanna State University</h3>
+              <h4 class="resume__paragraph">Lorem Ipseum</h4>
+            </div>
+            <div class="resume_wrapper-item">
+              <h2 class="resume__heading">2018</h2>
+              <h3 class="resume__type">Havard EdX</h3>
+              <h4 class="resume__paragraph">Principles of Design</h4>
+            </div>
+          </div>
+        </div>
+        <div class="flex-container&__row--25">
+          <div class="resume_wrapper">
+            <div class="resume_wrapper-item">
+              <h2 class="resume__heading">2019</h2>
+              <h3 class="resume__type">Udacity</h3>
+              <h4 class="resume__paragraph">Product Design</h4>
+            </div>
+            <div class="resume_wrapper-item">
+              <h2 class="resume__heading">2020</h2>
+              <h3 class="resume__type">Microsoft Partner</h3>
+              <h4 class="resume__paragraph">Platinum</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container"></div>
+  </section>
+
+  <section class="section portfolio" id="Portfolio">
+    <div class="container">
+      <div class="__header">
+        Portfolio
+        <img src="assets/icons/underline.svg" alt="underline" />
+      </div>
+      <div class="portfolio_tabs">
+        <ul class="nav nav-pills">
+          <li class="nav-item" *ngFor="let portfolio of portfolios; index as i">
+            <button
+              class="nav-link"
+              [ngClass]="{ active: i == 0 }"
+              type="button"
+              data-bs-toggle="pill"
+            >
+              {{ portfolio?.title }}
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="row" #section1>
+        <div class="col-12 col-md-6 col-lg-4">
+          <img src="assets/img/cloud.png" alt="cloud" />
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <img src="assets/img/cloud.png" alt="cloud" />
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <img src="assets/img/cloud.png" alt="cloud" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section touch" id="Contact">
+    <div class="container">
+      <div class="__header">
+        Get in Touch
+        <img src="assets/icons/underline.svg" alt="underline" />
+      </div>
+      <form class="row">
+        <div class="col-6 text-center mb-4">
+          <img src="assets/icons/call.svg" alt="call" />
+          <h3>Call Us</h3>
+          <a href="tel:'+234-806 749-700'">+234-806 749-700</a>
+        </div>
+        <div class="col-6 text-center mb-4">
+          <img src="assets/icons/email.svg" alt="email" />
+          <h3>Send Email</h3>
+          <a href="mailto:'revent@digital.com'">revent@digital.com</a>
+        </div>
+
+        <div class="col-12 col-lg-6 col-md-6">
+          <div class="form_group">
+            <input
+              type="text"
+              id="text"
+              class="form-control"
+              placeholder="Enter Your Name"
+              autocomplete="name"
+            />
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 col-md-6">
+          <div class="form_group">
+            <input
+              type="text"
+              id="text"
+              class="form-control"
+              placeholder="Enter Phone Number"
+            />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form_group">
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              placeholder="Enter email address"
+              autocomplete="email"
+            />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form_group">
+            <textarea
+              cols="30"
+              placeholder="Enter Message"
+              rows="7"
+              class="form-control"
+            ></textarea>
+            <div class="invalid-feedback">Required</div>
+          </div>
+        </div>
+      </form>
+      <button class="btn_primary btn_lg">Send message</button>
+    </div>
+  </section>
+</main>
