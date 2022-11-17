@@ -7,7 +7,7 @@ main {
   padding: 0;
   padding-top: 24.4rem;
   @include respond(phone) {
-    padding-top: 0rem;
+    padding-top: 10rem;
   }
 }
 
